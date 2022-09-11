@@ -55,16 +55,35 @@ body {
 
 #content {
     height: 2000px;
-    width: 100%;
-    max-width: 850px;
+    width: 850px;
+    max-width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 150px;
     background-color:#ffffff;
-    padding: 2rem;
+    border: 0;
+    padding: 0;
 }
 
-@media (max-width: 690px) {  
+.margins {
+    padding: 3rem;
+}
 
+@media (max-width: 850px) {  
+    #content {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .margins {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 630px) {  
+
+    .margins {
+        padding: 1rem;
+    }
 }
