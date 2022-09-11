@@ -55,7 +55,7 @@ body {
 }
 
 #content {
-    height: 2000px;
+    min-height: 2000px;
     width: 850px;
     max-width: 100%;
     display: block;
