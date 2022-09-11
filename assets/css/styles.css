@@ -3,6 +3,7 @@ body {
     margin: 0;
     background-color: #F8F9FA;
     scroll-behavior: smooth;
+    text-align: justify;
 }
 
 .hidden {
