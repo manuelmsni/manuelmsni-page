@@ -12,6 +12,10 @@ body {
 .pointer{
     cursor:pointer;
 }
+.button{
+    padding: 3px;
+    background: grey;
+}
 
 
 .trigger {
