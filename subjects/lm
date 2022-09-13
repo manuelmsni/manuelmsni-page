@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lenguaje de marcas</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/styles.css">
+
+
+    </head>
+
+    <body>
+        <section id="header">
+            <a style="text-decoration:none;" id="brand" href="../index.html">manuelmsni</a>
+        </section>
+
+        <section id="content">
+            <div class="margins">
+                <h1>Lenguaje de marcas</h1>
+                <hr/>
+                <h3>[Ej 2] ¿Qué es Java?</h3>
+                <a class="trigger ej2a" onclick="ShowHide('ej2b', 'ej2a')">⬇️ mostrar respuesta</a>
+                <div class="hidden ej2b">
+
+                    <a class="trigger" onclick="ShowHide('ej2a', 'ej2b')">⬆️ ocultar respuesta</a>
+                </div>
+                <h3>Terminología</h3>
+                <h4>Variables</h4>
+                <p></p>
+            </div>
+        </section>
+
+        <section id="footer">
+
+        </section>
+
+        <script src="https://manuelmartinsantamaria.com/assets/vendor/jquery/jquery.min.js"></script>
+
+        <script src="../assets/js/main.js"></script>
+    
+    </body>
+
+</html>
