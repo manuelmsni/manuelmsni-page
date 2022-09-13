@@ -20,31 +20,38 @@
         <section id="content">
             <div class="margins">
                 <h1>Bases de datos</h1>
+                <a class="" onclick="ShowHide('ap', 'pr')">Apuntes</a>
+                <a class="" onclick="ShowHide('pr', 'ap')">Prácticas</a>
                 <hr/>
-                <h3>Presentación "Soy un experto en..." <a class="trigger ej1a" onclick="ShowHide('ej1b', 'ej1a')">⬇️</a> </h3>
-                <div class="hidden ej1b">
-                    <h4>Grupo de investigación en Neurobiología Molecular</h4>
-                    <img style="display: block;margin-left:auto; margin-right:auto;max-width: 100%;" src="../assets/img/bd_ej1_0.jpg">
-                    <h4>Investigación en Entomología Aplicada</h4>
-                    <img style="display: block;margin-left:auto; margin-right:auto;max-width: 100%;" src="../assets/img/bd_ej1_1.jpg">
-                    <a class="trigger" onclick="ShowHide('ej1a', 'ej1b')">⬆️</a>
+                <div class="ap">
                 </div>
-                <h3>¿Qué es "DDL"? <a class="trigger ej2a" onclick="ShowHide('ej2b', 'ej2a')">⬇️</a> </h3>
-                <div class="hidden ej2b">
-                    <p>El lenguaje de definición de datos (DDL) es un subconjunto de SQL. Se emplea para definir las estructuras que almacenarán los datos y sus relaciones en una base de datos.</p>
-                    <img style="display: block;margin-left:auto; margin-right:auto;max-width: 100%;" src="../assets/img/bd_ej2_0.jpg">
-                    <p>Sentencias DDL son aquellas utilizadas para la creación de una base de datos y todos sus componentes: tablas, índices, relaciones, disparadores (triggers), procedimientos almacenados, etc.</p>
-                    <ol>
-                        <li>CREATE: Crear nuevas tablas, campos e índices.</li>
-                        <li>ALTER: Modifica las tablas agregando campos o cambiando la definición de los campos.</li>
-                        <li>DROP: Elimina tablas e índices.</li>
-                        <li>TRUNCATE: Elimina todos los registros de una tabla.</li>
-                        <li>COMMENT: Agrega comentarios al diccionario de datos.</li>
-                        <li>RENAME: Renombra objetos.</li>
-                    </ol>
-                    <img style="display: block;margin-left:auto; margin-right:auto;max-width: 100%;" src="../assets/img/bd_ej2_1.jpg">
-                    <a class="trigger" onclick="ShowHide('ej2a', 'ej2b')">⬆️</a>
+                <div class="pr hidden">
+                    <h3>Presentación "Soy un experto en..." <a class="trigger ej1a" onclick="ShowHide('ej1b', 'ej1a')">⬇️</a> </h3>
+                    <div class="hidden ej1b">
+                        <h4>Grupo de investigación en Neurobiología Molecular</h4>
+                        <img style="display: block;margin-left:auto; margin-right:auto;max-width: 100%;" src="../assets/img/bd_ej1_0.jpg">
+                        <h4>Investigación en Entomología Aplicada</h4>
+                        <img style="display: block;margin-left:auto; margin-right:auto;max-width: 100%;" src="../assets/img/bd_ej1_1.jpg">
+                        <a class="trigger" onclick="ShowHide('ej1a', 'ej1b')">⬆️</a>
+                    </div>
+                    <h3>¿Qué es "DDL"? <a class="trigger ej2a" onclick="ShowHide('ej2b', 'ej2a')">⬇️</a> </h3>
+                    <div class="hidden ej2b">
+                        <p>El lenguaje de definición de datos (DDL) es un subconjunto de SQL. Se emplea para definir las estructuras que almacenarán los datos y sus relaciones en una base de datos.</p>
+                        <img style="display: block;margin-left:auto; margin-right:auto;max-width: 100%;" src="../assets/img/bd_ej2_0.jpg">
+                        <p>Sentencias DDL son aquellas utilizadas para la creación de una base de datos y todos sus componentes: tablas, índices, relaciones, disparadores (triggers), procedimientos almacenados, etc.</p>
+                        <ol>
+                            <li>CREATE: Crear nuevas tablas, campos e índices.</li>
+                            <li>ALTER: Modifica las tablas agregando campos o cambiando la definición de los campos.</li>
+                            <li>DROP: Elimina tablas e índices.</li>
+                            <li>TRUNCATE: Elimina todos los registros de una tabla.</li>
+                            <li>COMMENT: Agrega comentarios al diccionario de datos.</li>
+                            <li>RENAME: Renombra objetos.</li>
+                        </ol>
+                        <img style="display: block;margin-left:auto; margin-right:auto;max-width: 100%;" src="../assets/img/bd_ej2_1.jpg">
+                        <a class="trigger" onclick="ShowHide('ej2a', 'ej2b')">⬆️</a>
+                    </div>
                 </div>
+                
             </div>
         </section>
 
