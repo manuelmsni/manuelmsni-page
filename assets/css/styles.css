@@ -19,6 +19,9 @@ body {
 .button:hover {
     background: #d4ddd9;
 }
+.inline{
+    display: inline;
+}
 
 
 .trigger {
