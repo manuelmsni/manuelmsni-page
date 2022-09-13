@@ -19,8 +19,13 @@ body {
 .button:hover {
     background: #d4ddd9;
 }
-.inline{
+.inline {
     display: inline;
+}
+.code {
+    background-color: grey;
+    color: white;
+    padding: 1rem;
 }
 
 
