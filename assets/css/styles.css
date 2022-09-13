@@ -23,8 +23,7 @@ body {
     display: inline;
 }
 .code {
-    background-color: #454c56#454c56;
-    color: white;
+    filter: invert(0.8);
     padding: 1rem;
 }
 
