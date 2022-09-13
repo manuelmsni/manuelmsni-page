@@ -30,6 +30,10 @@ textarea {
     filter: invert(0.8);
     padding: 1rem;
 }
+.drop {
+    border-left: 2px solid #88d1bd;
+    padding-left: 0.5rem;
+}
 
 
 .trigger {
