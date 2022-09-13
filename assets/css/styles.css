@@ -14,7 +14,10 @@ body {
 }
 .button{
     padding: 3px;
-    background: grey;
+    background: #b3c1bb;
+}
+.button:hover {
+    background: #d4ddd9;
 }
 
 
