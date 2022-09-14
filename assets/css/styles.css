@@ -93,6 +93,7 @@ b {
     padding-top: 31px;
     transition: all 0.5s;
     color: #00C6C3;
+    letter-spacing:1px;
 }
 
 .header-scrolled #brand {
@@ -156,5 +157,5 @@ b {
     -webkit-text-stroke: 0.5px #000000;
 }
 .header-scrolled .rgb {
-    -webkit-text-stroke: 0.5px #ffffff;
+    -webkit-text-stroke: 0.3px #ffffff;
 }
