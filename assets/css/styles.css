@@ -55,7 +55,7 @@ b {
     font-weight: 100;
     font-size: medium;
     cursor: pointer;
-    color: rgb(87, 156, 133);
+    color: #0078D7;
     filter: saturate(2) hue-rotate(325deg) brightness(1.2);
 }
 
