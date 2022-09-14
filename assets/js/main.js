@@ -41,3 +41,16 @@ window.onload = () => {
 		window.requestAnimationFrame(loop);
 	})();
 };
+
+
+function showColorTable() {
+	
+	const tiempoTranscurrido = Date.now();
+        const hoy = new Date(tempoTranscurrido);
+	 // "Sun Jun 14 2020"
+
+	$(".dia").text.hoy.toDateString();
+	
+}
+
+window.onload = showColorTable;
