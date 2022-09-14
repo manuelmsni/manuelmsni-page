@@ -45,12 +45,9 @@ window.onload = () => {
 
 function showColorTable() {
 	
-	const tiempoTranscurrido = Date.now();
-        const hoy = new Date(tempoTranscurrido);
-	 // "Sun Jun 14 2020"
-	const fecha = hoy.toDateString();
-
-	$(".dia").innerText(hoy);
+        var now = new Date();
+        var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+        document.getElementById('date').innerHTML = time;
 	
 }
 
