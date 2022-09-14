@@ -91,6 +91,7 @@ b {
     padding-right: 1rem;
     padding-top: 31px;
     transition: all 0.5s;
+    color: #00C6C3;
 }
 
 .header-scrolled #brand {
