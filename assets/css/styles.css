@@ -37,6 +37,7 @@ b {
 
 .horario {
     width: 100%;
+    text-align: center;
 }.horario td {
     width: calc(100%/6);
     border: 1px solid black;
