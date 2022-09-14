@@ -50,7 +50,7 @@ function showColorTable() {
 	 // "Sun Jun 14 2020"
 	const fecha = hoy.toDateString();
 
-	$(".dia").text.(fecha);
+	$(".dia").text.(hoy);
 	
 }
 
