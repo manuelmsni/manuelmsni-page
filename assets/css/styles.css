@@ -149,3 +149,7 @@ b {
     85% {color: #60FFAA;}
     100% {color: #FFD800;}
   }
+
+.rgb {
+    -webkit-text-stroke: 0.5px #000000;
+}
