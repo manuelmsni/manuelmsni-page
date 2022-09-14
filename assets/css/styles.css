@@ -35,12 +35,11 @@ b {
     cursor:pointer;
 }
 
-.horario{
-    border: 1px solid black;
-}
-
-.horario td {
+.horario {
+    width: 100%;
+}.horario td {
     width: calc(100%/6);
+    border: 1px solid black;
 }
 
 .button{
