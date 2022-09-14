@@ -48,8 +48,9 @@ function showColorTable() {
 	const tiempoTranscurrido = Date.now();
         const hoy = new Date(tempoTranscurrido);
 	 // "Sun Jun 14 2020"
+	const fecha = hoy.toDateString();
 
-	$(".dia").text.hoy.toDateString();
+	$(".dia").text.(fecha);
 	
 }
 
