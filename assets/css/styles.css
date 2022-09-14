@@ -39,6 +39,10 @@ b {
     border: 1px solid black;
 }
 
+.horario td {
+    width: calc(100%/6);
+}
+
 .button{
     padding: 3px;
     background: #b3c1bb;
