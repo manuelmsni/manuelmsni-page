@@ -47,16 +47,19 @@ function showColorTable() {
 	
 
 	
-}
+};
 
-$( document ).ready( 
-	time(); 
-)
 
+
+$(document).ready(function() {
+ 
+	function time() {}
+ 
+});
 
 function time() {
 	var now = new Date();
 	var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;
-}
+};
 
