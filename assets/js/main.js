@@ -49,11 +49,10 @@ function showColorTable() {
 	
 }
 
-$( document ).ready( time(); {
+$( document ).ready( 
+	time(); 
+)
 
-} )
-
-$( document ).ready(time(){});
 
 function time() {
 	var now = new Date();
