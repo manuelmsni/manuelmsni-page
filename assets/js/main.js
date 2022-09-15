@@ -49,26 +49,13 @@ function showColorTable() {
 	
 };
 
-/**
 
-$(document).ready(
-	
-	function time() {
-		var now = new Date();
-		var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-		document.getElementById('date').innerHTML = time;
- 	}
-	
-	
-); */
+$(document).ready(function () {
+	var now = new Date();
+	var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+	document.getElementById('date').innerHTML = time;
+});
 
-$(document).ready(function(){
-	$() {
-		var now = new Date();
-		var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-		document.getElementById('date').innerHTML = time;
- 	}
-})
 
 
 
