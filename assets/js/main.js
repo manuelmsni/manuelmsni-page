@@ -51,15 +51,16 @@ function showColorTable() {
 
 
 
-$(document).ready(function() {
- 
+$(document).ready(
+	
 	function time() {
-	var now = new Date();
-	var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-	document.getElementById('date').innerHTML = time;
-};
- 
-});
+		var now = new Date();
+		var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+		document.getElementById('date').innerHTML = time;
+ 	};
+	
+	
+);
 
 
 
