@@ -56,7 +56,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 	time();
-	setInterval(changeColor, 3000);
+	setInterval(time, 3000);
 });
 
 function time() {
