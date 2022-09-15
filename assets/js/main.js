@@ -61,6 +61,10 @@ $(document).ready(function () {
 function time() {
     	var now = new Date();
 	var month = now.getMonth() + 1;
+	var actualMonth = month;
+	if (actualMonth > 10) {
+		month = "0" + actualMonth;
+	}
 	var time = "Fecha: " + now.getDay() + "/" + month + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
 };
