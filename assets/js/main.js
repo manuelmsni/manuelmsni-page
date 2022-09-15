@@ -56,13 +56,13 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 	time();
-
+	setInterval(changeColor, 3000);
 });
 
 function time() {
     	var now = new Date();
 	var month = now.getMonth() + 1;
 	var time = "Fecha: " + now.getDay() + "/" + month + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-	document.getElementById('date').innerHTML = time;
+	document.getElementById('date').innerHTML = time;	
 };
 
