@@ -50,9 +50,7 @@ function showColorTable() {
 }
 
 $( document ).ready( function() {
-	function date() {
 	var now = new Date();
 	var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;
-	}
 } )
