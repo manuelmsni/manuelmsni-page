@@ -55,7 +55,6 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-	time();
 	setInterval(time, 3000);
 });
 
