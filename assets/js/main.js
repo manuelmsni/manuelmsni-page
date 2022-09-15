@@ -45,10 +45,12 @@ window.onload = () => {
 
 function showColorTable() {
 	
-        var now = new Date();
-        var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-        document.getElementById('date').innerHTML = time;
+
 	
 }
 
-window.onload = showColorTable;
+$( document ).ready( function() {
+	var now = new Date();
+	var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+	document.getElementById('date').innerHTML = time;
+} )
