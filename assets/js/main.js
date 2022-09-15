@@ -51,12 +51,18 @@ function showColorTable() {
 
 
 $(document).ready(function () {
-	var now = new Date();
+
+});
+
+$(document).ready(function () {
+	time();
+
+});
+
+function time() {
+    	var now = new Date();
 	var month = now.getMonth() + 1;
 	var time = "Fecha: " + now.getDay() + "/" + month + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;
-});
-
-
-
+};
 
