@@ -61,6 +61,7 @@ b {
     display: inline;
 }
 .code {
+    background: white;
     filter: invert(0.8);
     padding: 1rem;
 }
