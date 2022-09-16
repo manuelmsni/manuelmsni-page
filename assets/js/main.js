@@ -68,8 +68,6 @@ function time() {
 	
 	var day = now.getDay();
 	
-	window.alert(day);
-
 	if (day = 0) {
 		 $('.lunes').addClass('active');
 	} if (day = 1) {
