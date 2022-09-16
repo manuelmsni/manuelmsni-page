@@ -72,7 +72,7 @@ function time() {
 	
 	
 	var actualTime = new Date();
-        var currentTime = actualTime.setMonth(now + 1);
+        var currentTime = actualTime.setMonth(realMonth);
 	var day = currentTime.getDay();
 	
 	if (day = 0) {
