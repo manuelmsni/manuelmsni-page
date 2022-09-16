@@ -46,7 +46,7 @@ b {
 }.horario td {
     width: calc(100%/6);
     border: 1px solid black;
-}.horario h4 {
+}.horario p {
     margin: 0;
 }
 
