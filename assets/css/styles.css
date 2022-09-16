@@ -1,6 +1,7 @@
 
 :root {
   --mint: #319789;
+  --t-mint:#21fbc92b;
 }
 
 
@@ -30,7 +31,7 @@ b {
 }
 
 .active {
-  background: #21fbba47;
+  background: --t-mint;
 }
 
 
