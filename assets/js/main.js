@@ -61,7 +61,8 @@ $(document).ready(function () {
 function time() {
     	var now = new Date();
 	var month = now.getMonth() + 1;
-	now.setMonth(month);
+	/**
+	now.setMonth(month); */
 
 	var time = "Fecha: " + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
