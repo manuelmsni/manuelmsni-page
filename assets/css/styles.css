@@ -31,7 +31,7 @@ b {
 }
 
 .active {
-  background: --t-mint;
+  background: var(--t-mint);
 }
 
 
