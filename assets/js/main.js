@@ -68,15 +68,15 @@ function time() {
 	
 	var day = now.getDay();
 	
-	if (day = 0) {
+	if (day == 0) {
 		 $('.lunes').addClass('active');
-	} if (day = 1) {
+	} if (day == 1) {
 		$('.martes').addClass('active');
-	} if (day = 2) {
+	} if (day == 2) {
 		$('.miercoles').addClass('active');
-	} if (day = 3) {
+	} if (day == 3) {
 		$('.jueves').addClass('active');
-	} if (day = 4) {
+	} if (day == 4) {
 		$('.viernes').addClass('active');
 	}
 };
