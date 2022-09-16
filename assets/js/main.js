@@ -63,7 +63,7 @@ function time() {
 	var month = now.getMonth() + 1;
 	var actualMonth = month;
 	if (actualMonth > 10) {
-		var realMonth = "0" + actualMonth;
+		var realMonth = "O" + actualMonth;
 	} else {
 		var realMonth = month;
 	}
