@@ -68,7 +68,7 @@ function time() {
 	
 	var actualTime = now.setMonth(month);
 	var day = actualTime.getDay();
-	alert(day);
+	alert(day + "   " + actualTime);
 	
 	if (day = 0) {
 		 $('.lunes').addClass('active');
