@@ -62,8 +62,16 @@ function time() {
     	var now = new Date();
 	var month = now.getMonth() + 1;
 	now.setMonth(month);
+	
+	var horas = now.getHours();
+	var minutos = now.getMinutes();
+	var segundos = now.getSeconds();
+	
+	var dia = now.getDate();
+	var mes = now.getMonth();
+	var amo = now.getFullYear();
 
-	var time = "Fecha: " + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+	var time = "Fecha: " + dia + "/" + mes + "/" + amo + " Hora: " + horas + ":" + minutos + ":" + segundos;
 	document.getElementById('date').innerHTML = time;	
 	
 	
