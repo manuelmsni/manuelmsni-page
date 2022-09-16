@@ -70,7 +70,8 @@ function time() {
 	var time = "Fecha: " + now.getDate() + "/" + realMonth + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
 	
-	var day= new Date().getDay()
+	var day= Date(now.getFullYear(), realMonth, now.getDate())
+	
 	
 	if (day = 0) {
 		 $('.lunes').addClass('active');
