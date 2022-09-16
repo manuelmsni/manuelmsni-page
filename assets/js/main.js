@@ -69,5 +69,19 @@ function time() {
 	}
 	var time = "Fecha: " + now.getDate() + "/" + realMonth + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
+	
+	var day = now.getDay();
+	
+	if (day = 0) {
+		 $('.lunes').addClass('active');
+	} else if (day = 1) {
+		$('.martes').addClass('active');
+	} else if (day = 2) {
+		$('.miercoles').addClass('active');
+	} else if (day = 3) {
+		$('.jueves').addClass('active');
+	} else if (day = 4) {
+		$('.viernes').addClass('active');
+	}
 };
 
