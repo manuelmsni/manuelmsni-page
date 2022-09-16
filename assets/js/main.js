@@ -63,9 +63,11 @@ function time() {
 	var month = now.getMonth() + 1;
 	var actualMonth = month;
 	if (actualMonth > 10) {
-		var actualMonth = "0" + actualMonth;
+		var realMonth = "0" + actualMonth;
+	} else {
+		var realMonth = month;
 	}
-	var time = "Fecha: " + now.getDay() + "/" + actualMonth + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+	var time = "Fecha: " + now.getDay() + "/" + realMonth + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
 };
 
