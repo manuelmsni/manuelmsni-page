@@ -63,13 +63,13 @@ function time() {
 	var month = now.getMonth() + 1;
 	now.setMonth(month);
 	
-	var horas = now.getHours();
-	var minutos = now.getMinutes();
-	var segundos = now.getSeconds();
+	var horas = ("0" + now.getHours()).slice(-2);
+	var minutos = ("0" + now.getMinutes()).slice(-2);
+	var segundos = ("0" + now.getSeconds()).slice(-2);
 	
-	var dia = now.getDate();
+	var dia = ("0" + now.getDate()).slice(-2);
 	var mes = ("0" + now.getMonth()).slice(-2);
-	var amo = now.getFullYear();
+	var amo = ("0" + now.getFullYear()).slice(-2);
 
 	var time = "Fecha: " + dia + "/" + mes + "/" + amo + " Hora: " + horas + ":" + minutos + ":" + segundos;
 	document.getElementById('date').innerHTML = time;	
