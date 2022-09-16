@@ -61,18 +61,13 @@ $(document).ready(function () {
 function time() {
     	var now = new Date();
 	var month = now.getMonth() + 1;
-	var actualMonth = month;
-	if (actualMonth > 10) {
-		var realMonth = "O" & actualMonth;
-	} else {
-		var realMonth = month;
-	}
-	var time = "Fecha: " + now.getDate() + "/" + realMonth + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+
+	var time = "Fecha: " + now.getDate() + "/" + month + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
 	
 	
 	var actualTime = new Date();
-        var currentTime = actualTime.setMonth(realMonth);
+        var currentTime = actualTime.setMonth(month);
 	var day = currentTime.getDay();
 	
 	if (day = 0) {
