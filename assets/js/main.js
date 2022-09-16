@@ -66,7 +66,9 @@ function time() {
 	var time = "Fecha: " + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
 	
-	var day = now.getUTCDay();
+	var thisDate = new Date();
+	
+	var day = thisDate.getUTCDay();
 	
 	if (day == 0) {
 		 $('.lunes').addClass('active');
