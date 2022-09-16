@@ -71,7 +71,7 @@ function time() {
 	var mes = ("0" + now.getMonth()).slice(-2);
 	var amo = ("0" + now.getFullYear()).slice(-4);
 
-	var time = "Fecha: " + dia + "/" + mes + "/" + amo + "   Hora: " + horas + ":" + minutos + ":" + segundos;
+	var time = "Fecha: " + dia + "/" + mes + "/" + amo + " - Hora: " + horas + ":" + minutos + ":" + segundos;
 	document.getElementById('date').innerHTML = time;	
 	
 	
