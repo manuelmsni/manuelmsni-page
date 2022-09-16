@@ -65,7 +65,7 @@ function time() {
 	var time = "Fecha: " + now.getDate() + "/" + month + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
 	
-	now.setMonth(month + 1);
+	now.setMonth(month);
 	var day = now.getUTCDay();
 
 	
