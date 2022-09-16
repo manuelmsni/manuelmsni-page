@@ -68,7 +68,7 @@ function time() {
 	var segundos = now.getSeconds();
 	
 	var dia = now.getDate();
-	var mes = now.getMonth();
+	var mes = ("0" + now.getMonth()).slice(-2);
 	var amo = now.getFullYear();
 
 	var time = "Fecha: " + dia + "/" + mes + "/" + amo + " Hora: " + horas + ":" + minutos + ":" + segundos;
