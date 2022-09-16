@@ -67,7 +67,7 @@ function time() {
 	} else {
 		var realMonth = month;
 	}
-	var time = "Fecha: " + now.getDay() + "/" + realMonth + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+	var time = "Fecha: " + now.getDate() + "/" + realMonth + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
 };
 
