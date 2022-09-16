@@ -71,8 +71,9 @@ function time() {
 	document.getElementById('date').innerHTML = time;	
 	
 	
-	var options = {  weekday: 'numeric'};
-        var day = new Date().toLocaleTimeString('en-us', options);
+	var actualTime = new Date();
+        var currentTime = actualTime.setMonth(now + 1);
+	var day = currentTime.getDay();
 	
 	if (day = 0) {
 		 $('.lunes').addClass('active');
