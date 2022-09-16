@@ -70,8 +70,9 @@ function time() {
 	var time = "Fecha: " + now.getDate() + "/" + realMonth + "/" + now.getFullYear() + " Hora: " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	document.getElementById('date').innerHTML = time;	
 	
-	var day= Date(now.getFullYear(), realMonth, now.getDate())
 	
+	var options = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        var day = new Date().toLocaleTimeString('en-us', options);
 	
 	if (day = 0) {
 		 $('.lunes').addClass('active');
