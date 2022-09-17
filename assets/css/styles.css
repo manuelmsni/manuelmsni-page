@@ -37,8 +37,9 @@ b {
 .horario{
   border: 1px solid black;
   width: 100%;
-  background: url('../img/horario2.jpg');
+  background: url('../img/horario2.jpg') no-repeat;
   height: var(--altura-horario);
+  background-size: contain;
 }
 
 
