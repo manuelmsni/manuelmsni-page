@@ -55,7 +55,7 @@ window.onresize = function() {
 
 function tableHeight() {
 	ancho = $("div").width();
-	altura = ancho * (258/1406);
+	altura = (ancho - 2) * (258/1406);
 	$("body").css("--altura-horario", altura+"px");
 }
 
