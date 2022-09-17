@@ -42,6 +42,9 @@ b {
   background-size: contain;
   border-collapse: collapse;
 }
+.horario2 td {
+  border: 1px solid var(--t-mint);
+}
 
 
 
