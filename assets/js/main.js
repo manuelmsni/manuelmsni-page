@@ -43,25 +43,16 @@ window.onload = () => {
 };
 
 
-function showColorTable() {
-	
-
-	
-};
-
-
-$(document).ready(function () {
-
-});
 
 $(document).ready(function () {
 	setInterval(time, 1000);
+	tableHeight();
 });
 
 function tableHeight() {
 	ancho = $("div").width();
 	altura = ancho * (1406/258);
-	$("body").css("--altura-horario", altura + "px");
+	root.style.setProperty("--altura-horario", altura + "px");
 }
 
 
