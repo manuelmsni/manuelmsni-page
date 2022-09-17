@@ -58,6 +58,13 @@ $(document).ready(function () {
 	setInterval(time, 1000);
 });
 
+function tableHeight() {
+	ancho = $("div").width();
+	altura = ancho * (1406/258);
+	$("body").css("--altura-horario", altura + "px");
+}
+
+
 function time() {
     	var now = new Date();
 	var month = now.getMonth() + 1;
