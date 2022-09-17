@@ -34,7 +34,7 @@ b {
 .active {
   background: var(--t-mint);
 }
-.horario{
+.horario2{
   border: 1px solid black;
   width: 100%;
   background: url('../img/horario2.jpg') no-repeat;
