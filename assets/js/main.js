@@ -80,15 +80,15 @@ function time() {
 	var day = now.getUTCDay() + 4;
 	
 	if (day == 0) {
-		 $('.lunes').addClass('active');
+		 $('.a').addClass('active');
 	} if (day == 1) {
-		$('.martes').addClass('active');
+		$('.b').addClass('active');
 	} if (day == 2) {
-		$('.miercoles').addClass('active');
+		$('.c').addClass('active');
 	} if (day == 3) {
-		$('.jueves').addClass('active');
+		$('.d').addClass('active');
 	} if (day == 4) {
-		$('.viernes').addClass('active');
+		$('.e').addClass('active');
 	}
 };
 
