@@ -2,6 +2,7 @@
 :root {
   --mint: #319789;
   --t-mint:#21fbc92b;
+  --altura-horario:;
 }
 
 
@@ -37,6 +38,7 @@ b {
   border: 1px solid black;
   width: 100%;
   background: url('../img/horario2.jpg');
+  height: var(--altura-horario);
 }
 
 
