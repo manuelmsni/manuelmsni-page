@@ -40,6 +40,7 @@ b {
   background: url('../img/horario2.jpg') no-repeat;
   height: var(--altura-horario);
   background-size: contain;
+  border-collapse: collapse;
 }
 
 
