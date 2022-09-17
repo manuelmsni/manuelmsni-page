@@ -49,6 +49,10 @@ $(document).ready(function () {
 	tableHeight();
 });
 
+window.onresize = function() {
+	tableHeight();
+}
+
 function tableHeight() {
 	ancho = $("div").width();
 	altura = ancho * (258/1406);
