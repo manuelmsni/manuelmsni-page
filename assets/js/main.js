@@ -51,8 +51,8 @@ $(document).ready(function () {
 
 function tableHeight() {
 	ancho = $("div").width();
-	altura = ancho * (1406/258);
-	$("body").css("--altura-horario", altura);
+	altura = ancho * (258/1406);
+	$("body").css("--altura-horario", altura+"px");
 }
 
 
