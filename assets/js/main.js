@@ -150,9 +150,9 @@ function time() {
 				$('.' + code).addClass('active');
 				$('.t' + tt).addClass('active');
 			} if (0 < tb) {
-				var code = dd + "s" + td;
+				var code = dd + "s" + tb;
 				$('.' + code).addClass('activeBorder');
-				$('.t' + code).addClass('activeBorder');
+				$('.t' + tb).addClass('activeBorder');
 			}
 		}	
 	}
