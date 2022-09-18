@@ -83,7 +83,7 @@ function time() {
 	//Test
 	day = $('#die').val();
 	horas = 17;
-	minutos = 43;
+	minutos = 46;
 	
 	if ( day < 5) {
 		
