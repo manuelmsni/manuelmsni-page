@@ -83,7 +83,7 @@ function time() {
 	//Test
 	day = 3;
 	horas = 20;
-	minutos = 30;
+	minutos = 51;
 	
 	if ( day < 5) {
 		
