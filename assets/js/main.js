@@ -152,7 +152,7 @@ function time() {
 			} if (0 < tb) {
 				var code = dd + "s" + tb;
 				$('.' + code).addClass('activeBorder');
-				$('.t' + tb).addClass('activeBorder');
+				$('.ts' + tb).addClass('activeBorder');
 			}
 		}	
 	}
