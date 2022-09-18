@@ -85,6 +85,23 @@ function time() {
 		var tt = 0;
 		var td = 0;
 		
+		if (day == 0) {
+			$('.a').addClass('active');
+			var dd = a;
+		} if (day == 1) {
+			$('.b').addClass('active');
+			var dd = b;
+		} if (day == 2) {
+			$('.c').addClass('active');
+			var dd = c;
+		} if (day == 3) {
+			$('.d').addClass('active');
+			var dd = d;
+		} if (day == 4) {
+			$('.e').addClass('active');
+			var dd = e;
+		}
+		
 		if ( 16.00 <= decimalTime && decimalTime < 21.45) {
 		
 			if (16.00 <= decimalTime && decimalTime < 16.50) {
@@ -121,25 +138,15 @@ function time() {
 				//Hora 6
 				var tt = 7;
 			}
+			
+			if (0 < tt) {
+				var code = dd + tt;
+			} if (0 < tb) {
+				var code = dd + "s" + td;
+			}
+			
+			
 		}
-		
-		if (day == 0) {
-			$('.a').addClass('active');
-			var dd = a;
-		} if (day == 1) {
-			$('.b').addClass('active');
-			var dd = b;
-		} if (day == 2) {
-			$('.c').addClass('active');
-			var dd = c;
-		} if (day == 3) {
-			$('.d').addClass('active');
-			var dd = d;
-		} if (day == 4) {
-			$('.e').addClass('active');
-			var dd = e;
-		}
-		
 	}
 	
 	
