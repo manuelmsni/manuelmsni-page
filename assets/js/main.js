@@ -79,16 +79,69 @@ function time() {
 	
 	var day = now.getUTCDay() + 4;
 	
-	if (day == 0) {
-		 $('.a').addClass('active');
-	} if (day == 1) {
-		$('.b').addClass('active');
-	} if (day == 2) {
-		$('.c').addClass('active');
-	} if (day == 3) {
-		$('.d').addClass('active');
-	} if (day == 4) {
-		$('.e').addClass('active');
+	if ( day < 5) {
+		
+		var decimalTime = horas + (minutos/100);
+		
+		if ( 16.00 <= decimalTime && decimalTime < 21.45) {
+		
+			if (16.00 <= decimalTime && decimalTime < 16.50) {
+				// Hora 1
+				var tt = 1;
+			} if (16.50 <= decimalTime && decimalTime < 16.55) {
+				// Descanso 1
+				var tb = 1;
+			} if (16.55 <= decimalTime && decimalTime < 17.45) {
+				// Hora 2
+				var tt = 2;
+			} if (17.45 <= decimalTime && decimalTime < 17.50) {
+				// Descanso 2
+				var tb = 2;
+			} if (17.50 <= decimalTime && decimalTime < 18.40) {
+				//Hora 3
+				var tt = 3;
+			} if (18.40 <= decimalTime && decimalTime < 19.05) {
+				// Recreo
+				var tt = 4;
+			} if (19.05 <= decimalTime && decimalTime < 19.55) {
+				//Hora 4
+				var tt = 5;
+			} if (19.55 <= decimalTime && decimalTime < 20.00) {
+				// Descanso 3
+				var tb = 3;
+			} if (20.00 <= decimalTime && decimalTime < 20.50) {
+				//Hora 5
+				var tt = 6;
+			} if (20.50 <= decimalTime && decimalTime < 20.55) {
+				// Descanso 4
+				var tb = 4;
+			} if (20.55 <= decimalTime && decimalTime < 21.45) {
+				//Hora 6
+				var tt = 7;
+			}
+		}
+		
+		if (day == 0) {
+			 $('.a').addClass('active');
+			
+		} if (day == 1) {
+			$('.b').addClass('active');
+			
+		} if (day == 2) {
+			$('.c').addClass('active');
+			
+		} if (day == 3) {
+			$('.d').addClass('active');
+			
+		} if (day == 4) {
+			
+			$('.e').addClass('active');
+		}
+		
 	}
+	
+	
+	
+
 };
 
