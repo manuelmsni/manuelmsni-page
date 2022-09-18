@@ -152,17 +152,8 @@ function time() {
 				var code = dd + "s" + td;
 				$('.' + code).addClass('activeBorder');
 			}
-		}
-		
-		
-		alert(decimalTime + " " + code);
-		
+		}	
 	}
-	
-	
-	
-	
-	
 
 };
 
