@@ -79,6 +79,12 @@ function time() {
 	
 	var day = now.getUTCDay() + 4;
 	
+	
+	//Test
+	day = 3;
+	horas = 20;
+	minutos = 30;
+	
 	if ( day < 5) {
 		
 		var decimalTime = horas + (minutos/100);
