@@ -35,7 +35,7 @@ b {
   background: var(--t-mint);
 }
 .activeBorder {
-  border-bottom: 1px solid var(--mint);
+  box-shadow: inset 0px -2px 4px -1px var(--mint);
 }
 .horario2{
   border: 0px;
@@ -46,7 +46,7 @@ b {
   border-collapse: collapse;
 }
 .horario2 td {
-  border: 1px solid var(--t-mint);
+  border: 1px solid var(--mint);
 }
 
 
