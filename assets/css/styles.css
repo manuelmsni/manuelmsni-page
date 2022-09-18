@@ -35,7 +35,7 @@ b {
   background: var(--t-mint);
 }
 .activeBorder {
-  box-shadow: inset 0px -2px 4px -1px var(--mint);
+  box-shadow: inset 0px -3px 4px -1px #35c18de0;
 }
 .horario2{
   border: 0px;
