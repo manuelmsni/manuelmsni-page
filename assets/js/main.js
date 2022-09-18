@@ -82,6 +82,8 @@ function time() {
 	if ( day < 5) {
 		
 		var decimalTime = horas + (minutos/100);
+		var tt = 0;
+		var td = 0;
 		
 		if ( 16.00 <= decimalTime && decimalTime < 21.45) {
 		
@@ -122,20 +124,20 @@ function time() {
 		}
 		
 		if (day == 0) {
-			 $('.a').addClass('active');
-			
+			$('.a').addClass('active');
+			var dd = a;
 		} if (day == 1) {
 			$('.b').addClass('active');
-			
+			var dd = b;
 		} if (day == 2) {
 			$('.c').addClass('active');
-			
+			var dd = c;
 		} if (day == 3) {
 			$('.d').addClass('active');
-			
+			var dd = d;
 		} if (day == 4) {
-			
 			$('.e').addClass('active');
+			var dd = e;
 		}
 		
 	}
