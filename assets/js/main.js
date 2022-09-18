@@ -93,19 +93,19 @@ function time() {
 		
 		if (day == 0) {
 			$('.a').addClass('active');
-			var dd = a;
+			var dd = "a";
 		} if (day == 1) {
 			$('.b').addClass('active');
-			var dd = b;
+			var dd = "b";
 		} if (day == 2) {
 			$('.c').addClass('active');
-			var dd = c;
+			var dd = "c";
 		} if (day == 3) {
 			$('.d').addClass('active');
-			var dd = d;
+			var dd = "d";
 		} if (day == 4) {
 			$('.e').addClass('active');
-			var dd = e;
+			var dd = "e";
 		}
 		
 		if ( 16.00 <= decimalTime && decimalTime < 21.45) {
