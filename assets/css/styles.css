@@ -34,6 +34,9 @@ b {
 .active {
   background: var(--t-mint);
 }
+.activeBorder {
+  border-bottom: 1px solid var(--mint);
+}
 .horario2{
   border: 0px;
   width: 100%;
