@@ -80,11 +80,6 @@ function time() {
 	var day = now.getUTCDay() + 4;
 	
 	
-	//Test
-	day = $('#die').val();
-	horas = 17;
-	minutos = 46;
-	
 	if ( day < 5) {
 		
 		$('.active').removeClass('active');
