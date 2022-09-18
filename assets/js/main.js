@@ -82,8 +82,8 @@ function time() {
 	
 	//Test
 	day = 3;
-	horas = 20;
-	minutos = 51;
+	horas = $('#hour').text();
+	minutos = $('#minut').text();
 	
 	if ( day < 5) {
 		
