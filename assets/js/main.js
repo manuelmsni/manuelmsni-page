@@ -141,11 +141,11 @@ function time() {
 			
 			if (0 < tt) {
 				var code = dd + tt;
+				$("." + code).addClass('active');
 			} if (0 < tb) {
 				var code = dd + "s" + td;
+				$("." + code).addClass('activeBorder');
 			}
-			
-			
 		}
 	}
 	
