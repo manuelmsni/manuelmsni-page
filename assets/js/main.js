@@ -153,7 +153,13 @@ function time() {
 				$("." + code).addClass('activeBorder');
 			}
 		}
+		
+		
+		alert(decimalTime);
+		
 	}
+	
+	
 	
 	
 	
