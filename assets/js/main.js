@@ -155,7 +155,7 @@ function time() {
 		}
 		
 		
-		alert(decimalTime);
+		alert(decimalTime + " " + code);
 		
 	}
 	
