@@ -87,6 +87,9 @@ function time() {
 	
 	if ( day < 5) {
 		
+		$('.active').removeClass('active');
+		$('.activeBorder').removeClass('activeBorder');
+		
 		var decimalTime = horas + (minutos/100);
 		var tt = 0;
 		var td = 0;
