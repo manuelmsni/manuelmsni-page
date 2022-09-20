@@ -146,7 +146,7 @@
             document.getElementById('date').innerHTML = time;
 
             var thistime = new Date();
-            var day = thistime.getUTCDay() - 1;
+            var day = thistime.getUTCDay();
             const weekday = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
             document.getElementById('weekday').innerHTML = weekday[day];
 
