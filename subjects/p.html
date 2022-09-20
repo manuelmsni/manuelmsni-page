@@ -33,7 +33,13 @@
                         <a></a>
                         <br/>
                         <h4 class="inline">Paradigma: </h4>
-                        <a>Diferentes enfoques mediante los cuales se puede abordar un problema computacional. [Paradigma imperativo, paradigma declarativo, programación orientada a objetos, programación reactiva]</a>
+                        <a>Diferentes enfoques mediante los cuales se puede abordar un problema computacional.</a>
+                        <ul>
+                            <li><b>Paradigma imperativo</b>: </li>
+                            <li><b>Paradigma declarativo</b>: </li>
+                            <li><b>Programación orientada a objetos</b>: </li>
+                            <li><b>Programación reactiva</b>: </li>
+                        </ul>
                         <br/>
                         <h4 class="inline">Algoritmo: </h4>
                         <a>Serie finita de instrucciones bien definidas capaces de resolver un problema computacional.</a>
@@ -42,16 +48,28 @@
                         <a>Plantilla que agrupa una serie de objetos (reales o no reales) con su identificador y sus propiedades pero comparten características en común.</a>
                         <br/>
                         <h4 class="inline">Variable: </h4>
-                        <a></a>
+                        <a>Espacio de memoria que sirve para alojar información. Un dato como por ejemplo una cadena de texto o un número.</a>
                         <ul>
-                            <li>Globales: Se declaran al comienzo de la clase (fuera de los métodos). Su utilización puede ser en toda la clase.</li>
-                            <li>De método: </li>
-                            <li>static: pertenecen a la clase y no se necesita crear un objeto.</li>
-                            <li>final static: pertenecen a la clase y no se pueden modificar.</li>
+                            <li><b>Globales</b>: Se declaran al comienzo de la clase (fuera de los métodos). Su utilización puede ser en toda la clase.</li>
+                            <li><b>Locales</b>: Su visibilidad se limita al método sobre el que están definidas. A diferencia de las variables de instancia, no llevan modificadores de visibilidad delante.</li>
+                            <li><b>De clase (Campos estáticos)</b>: Están precedidas del modificador static. Esto indica que solo hay una instancia de dicha variable. Es decir, aunque tengamos N objetos de la clase, la variable estática solo se instancia una vez.</li>
+                            <li><b>static</b>: Pertenecen a la clase y no se necesita crear un objeto.</li>
+                            <li><b>final</b>: Pertenecen a la clase y no se pueden modificar (solo se les puede asignar valor una vez).</li>
+                            <li><b>static final</b>: Se conoce como variable constante, la cual conserva su valor a traves de diferentes objetos y no se le puede asignar un valor fuera de la clase en la que fue creada.</li>
                         </ul>
                         <br/>
                         <h4 class="inline">Método: </h4>
-                        <a></a>
+                        <a>Porción de código que realiza tareas asociadas a un objeto, básicamente un método es una función que pertenece a un objeto o clase. </a>
+                        <a>A través de un método dotamos a nuestros objetos de funcionalidades y características comunes a su clase (si nuestro objeto fuera un auto, nuestros métodos asociados podrían ser, ruedas, puertas, motor, etc., que son comunes a todos los objetos auto). </a>
+                        <a>Un método precisa de un objeto a quien otorgarle funcionalidades.</a>
+                        <br/>
+                        <h4 class="inline">Función: </h4>
+                        <a>Es una agrupación de sentencias que nos permiten ejecutar tareas repetitivas sin tener que escribirlas cada vez, cumple la misma función de un método, pero no necesita de un objeto para existir por sí misma.</a>
+                        <br/>
+                        <h4 class="inline">Parámetros: </h4>
+                        <a>Los parámetros de una función son los valores que se colocan entre los paréntesis que están al lado del nombre de la función, indicándose el tipo de cada uno y su nombre. </a>
+                        <a>Son variables locales, a estas variables les asignamos un valor antes de que se ejecute la función, su ámbito de validez, por tanto, es el propio cuerpo de la función. </a>
+                        <a>Pueden servir para introducir datos para ejecutar el método (entrada) o para obtener o modificar datos tras su ejecución (salida).</a>
                         <br/>
                         <h4 class="inline">Operador: (de asignación =)</h4>
                         <a></a>
@@ -65,6 +83,7 @@
                         <h4 class="inline">Instancia: </h4>
                         <a></a>
                         <br/>
+
                         
                     
                         <img style="display: block;margin-left:auto; margin-right:auto;max-width: 100%;" src="../assets/img/p_001.jpg">
@@ -123,17 +142,241 @@
                         <a class="trigger inline" onclick="ShowHide('t1a', 't1b')">⬆️</a>
                     </div>
 
-                    <h3>Palabras reservadas (keywords): <a class="trigger t2a inline" onclick="ShowHide('t2b', 't2a')">⬇️</a></h3>
+                    <h3>Tipos de datos: <a class="trigger t2a inline" onclick="ShowHide('t2b', 't2a')">⬇️</a></h3>
                                      
                     <style type="text/css">
                         .t2b b {
                             font-size: 107%;
                             color: #319789;
                         }
+                        table p {
+                            margin: 0.2rem;
+                        }
                     </style>
                     
                     <div class="hidden drop t2b">
                         <a class="trigger inline" onclick="ShowHide('t2a', 't2b')">⬆️</a>
+                        <br/>
+                        <br/>
+                        <h4 class="inline">PRIMITIVOS</h4>
+                        <a>(sin métodos; no son objetos; no necesitan una invocación para ser creados).</a>
+                        <br/>
+                        <br/>
+
+                        <table border="1" cellspacing="0" cellpadding="0">
+                            <tr>
+
+                            <td>
+                            <p style="text-align: center;"><b>NOMBRE</b></p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;"><b>TIPO</b></p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;"><b>OCUPA</b></p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;"><b>RANGO APROXIMADO</b></p>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <p style="text-align: center;">byte</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Entero</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">1 byte</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">-128 a 127</p>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <p style="text-align: center;">short</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Entero</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">2 bytes</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">-32768 a 32767</p>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <p style="text-align: center;">int</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Entero</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">4 bytes</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">2*10<sup>9</sup></p>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <p style="text-align: center;">long</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Entero</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">8 bytes</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Muy grande</p>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <p style="text-align: center;">float</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Decimal simple</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">4 bytes</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Muy grande</p>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <p style="text-align: center;">double</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Decimal doble</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">8 bytes</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Muy grande</p>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <p style="text-align: center;">char</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Carácter simple</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">2 bytes</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">---</p>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <p style="text-align: center;">boolean</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">Valor true o false</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">1 byte</p>
+                            </td>
+                            <td>
+                            <p style="text-align: center;">---</p>
+                            </td>
+                            </tr>
+                            
+                            </table>
+
+                            <h4>OBJETO</h4>
+
+                            <table border="1" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>
+                                    <p style="text-align: center;">Tipos de la biblioteca estándar de Java</p>
+                                    </td>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">String (cadenas de texto)</p>
+                                    <p style="text-align: center;">Muchos otros (p.ej. Scanner, TreeSet, ArrayList…)</p>
+                                    </td>
+                                </tr>
+                                    <tr>
+                                    <td>
+                                    <p style="text-align: center;">Tipos definidos por el programador / usuario</p>
+                                    </td>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Cualquiera que se nos ocurra, por ejemplo Taxi, Autobus, Tranvia</p>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                    <p style="text-align: center;">arrays</p>
+                                    </td>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Serie de elementos o formación tipo vector o matriz. Lo consideraremos un objeto especial que carece de métodos.</p>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td rowspan="8">
+                                    <p style="text-align: center;">Tipos envoltorio o wrapper (Equivalentes a los tipos primitivos pero como objetos.)</p>
+                                    </td>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Byte</p>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Short</p>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Integer</p>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Long</p>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Float</p>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Double</p>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Character</p>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="3">
+                                    <p style="text-align: center;">Boolean</p>
+                                    </td>
+                                    </tr>
+
+                            </table>
+
+                            <br/>
+
+                        <a class="trigger inline" onclick="ShowHide('t2a', 't2b')">⬆️</a>
+                    </div>
+
+                    <h3>Palabras reservadas (keywords): <a class="trigger t3a inline" onclick="ShowHide('t3b', 't3a')">⬇️</a></h3>
+
+                    <div class="hidden drop t3b">
+                        <a class="trigger inline" onclick="ShowHide('t3a', 't3b')">⬆️</a>
                         <ol>
                             <li>
                                 <b>abstract: </b>
@@ -379,8 +622,12 @@
                             
                             </li>
                         </ol>
-                        <a class="trigger inline" onclick="ShowHide('t2a', 't2b')">⬆️</a>
-                    </div>    
+                        <a class="trigger inline" onclick="ShowHide('t3a', 't3b')">⬆️</a>
+                    </div>
+
+
+
+
                 </div>
                 
                 <!-- ================================ Prácticas ================================  -->
