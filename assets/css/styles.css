@@ -40,7 +40,7 @@ b {
 .horario2{
   border: 0px;
   width: 100%;
-  background: url('../img/horario.jpg') no-repeat;
+  background: url('../img/horario3.jpg') no-repeat;
   height: var(--altura-horario);
   background-size: contain;
   border-collapse: collapse;
