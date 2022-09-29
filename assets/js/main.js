@@ -44,3 +44,7 @@ window.onload = () => {
 
 
 
+
+function loadHTML(elementId, path) {
+	$(`#${elementId}`).load(`${path}`);
+}
