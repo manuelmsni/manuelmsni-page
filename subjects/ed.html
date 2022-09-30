@@ -24,42 +24,12 @@
                 <a class="button pointer" onclick="ShowHide('pr', 'ap')">Prácticas</a>
                 <hr/>
                 <div class="ap">
-                    <h3>Terminología <a class="trigger s01a" onclick="ShowHide('s01b', 's01a')">⬇️ mostrar</a></h3>
-                    <div class="hidden s01b">
-                        <h4>Hardware:</h4>
-                        <p>Conjunto de dispositivos físicos que conforman un "ordenador" se le denomina hardware. Requiere de software para proporcionar sus funciones.</p>
-                        <h4>Software:</h4>
-                        <p>Conjunto de programas informáticos que actúan sobre el hardware.</p>
-                        <ol>
-                            <li><b>Software de sistema</b> (Ej: Sistema operativo) es el software base que ha de ser instalado y configurado en el dispositivo para que las aplicaciones puedan ejecutarse y funcionar.</li>
-                            <li><b>Software de programación</b> es el conjunto de herramientas que nos permiten desarrollar programas informáticos.</li>
-                        </ol>
-                        <h4>Programa:</h4>
-                        <p>Conjunto de instrucciones escritas en un lenguaje de programación, que indican a la máquina que operaciones realizar sobre unos determinados datos.</p>
-                        <h4>Aplicaciones Informáticas:</h4>
-                        <p>Conjunto de programas que tienen una finalidad más o menos concretas.</p>
-                        <h4>Sistema operativo:</h4>
-                        <p>Coordina a muy bajo nivel el hardware durante el funcionamiento del ordenador, actuando como intermediario entre este y las aplicaciones que corren en un momento dado. Gestiona los recursos de hardware (GPU RAM, tratamiento de RAM, Interrupciones, Gestión de dispositivos de entrada/salida) durante la ejecución de las aplicaciones.</p>
-                        <h4></h4>
-                        <p></p>
-                        <a class="trigger" onclick="ShowHide('s02a', 's02b')">⬆️ ocultar</a>
+                    <h3>Terminología <a class="trigger sterms" onclick="loadHTML('Terms', 'ed/terminologia.html'), ShowHide('terms', 'sterms')">⬇️ mostrar</a></h3>
+                    <div id="Terms" class="hidden terms">
+
                     </div>
-                    <h3>Tema 1 <a class="trigger s02a" onclick="ShowHide('s02b', 's02a')">⬇️ mostrar</a></h3>
-                    <div class="hidden s02b">
-                        <h4>Fases en el desarrollo de software:</h4>
-                        <p></p>
-                        <ul>
-                            <li><b>Análisis</b>: Documento especificación de requisitos software (Detectar requisitos funcionales y no funcionales). Documento de diseño de arquitectura.</li>
-                            <li><b>Diseño</b>: Documento de diseño de software. Plan de pruebas</li>
-                            <li><b>Codificación y compilación</b>: Decidir entorno, Crear el código fuente (programar). (Modularidad, Corrección, Facil de leer, Eficiencia, Portabilidad)</li>
-                            <li><b>Pruebas</b>: </li>
-                            <li><b>Explotación</b>: </li>
-                            <li><b>Mantenimiento</b>: </li>
-                        </ul>
-                        <a class="trigger" onclick="ShowHide('s02a', 's02b')">⬆️ ocultar</a>
-                    </div>
-                    <h3>Unidad 1 <a class="trigger sud1" onclick="loadHTML('test', 'ed/ud1.html'), ShowHide('ud1', 'sud1')">⬇️ mostrar</a></h3>
-                    <div id="test" class="ud1"></div>
+                    <h3>Unidad 1 <a class="trigger sud1" onclick="loadHTML('Ud1', 'ed/ud1.html'), ShowHide('ud1', 'sud1')">⬇️ mostrar</a></h3>
+                    <div id="Ud1" class="hidden ud1"></div>
                 </div>
                 <div class="pr">
                 </div>
