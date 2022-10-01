@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Entornos de desarrollo</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/styles.css">
+
+
+    </head>
+
+    <body>
+        <section id="header">
+            <a style="text-decoration:none;" id="brand" href="../index.html">manuelmsni</a>
+        </section>
+
+        <section id="content">
+            <div class="margins">
+                <h1>Entornos de desarrollo</h1>
+                <a class="button pointer" onclick="ShowHide('ap', 'pr')">Apuntes</a>
+                <a class="button pointer" onclick="ShowHide('pr', 'ap')">Prácticas</a>
+                <hr/>
+                <div class="ap">
+                    <h3>Terminología <a class="trigger sterms" onclick="loadHTML('Terms', 'ed/terminologia.html'), ShowHide('terms', 'sterms')">⬇️ mostrar</a></h3>
+                    <div id="Terms" class="hidden terms drop">
+
+                    </div>
+                    <h3>Unidad 1 <a class="trigger sud1" onclick="loadHTML('Ud1', 'ed/ud1.html'), ShowHide('ud1', 'sud1')">⬇️ mostrar</a></h3>
+                    <div id="Ud1" class="hidden ud1 drop"></div>
+                </div>
+                <div class="pr">
+                </div>
+            </div>
+        </section>
+
+        <section id="footer">
+
+        </section>
+
+        <script src="https://manuelmartinsantamaria.com/assets/vendor/jquery/jquery.min.js"></script>
+
+        <script src="../assets/js/main.js"></script>
+    
+    </body>
+
+</html>
