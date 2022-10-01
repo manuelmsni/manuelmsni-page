@@ -114,14 +114,14 @@
 
     <script>
 
-        callBits();
-
         function callbits() {
             $('#header').load('assets/bits/header.html');
 		    $('#footer').load('assets/bits/footer.html');
-        };
+        }
 
         window.onload = () => {
+
+            callBits();
 
             let rgbText, nodes, hues;
 
