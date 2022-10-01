@@ -17,11 +17,13 @@ $(window).scroll(function() {
   }
 
 window.onload = () => {
-	$('#header').load('manuelmsni.com/assets/bits/header.html');
-	$('#footer').load('manuelmsni.com/assets/bits/footer.html');
+	
 };
 
-
+function callBits() {
+		$('#header').load('manuelmsni.com/assets/bits/header.html');
+		$('#footer').load('manuelmsni.com/assets/bits/footer.html');
+};
 
 
 function loadHTML(elementId, path) {
