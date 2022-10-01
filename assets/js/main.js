@@ -21,8 +21,8 @@ window.onload = () => {
 };
 
 function callBits() {
-		$('#header').load('https://manuelmsni.com/assets/bits/header.html');
-		$('#footer').load('https://manuelmsni.com/assets/bits/footer.html');
+		$('#header').load('../../../../../assets/bits/header.html');
+		$('#footer').load('../../../../../assets/bits/footer.html');
 };
 
 
