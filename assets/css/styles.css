@@ -2,7 +2,7 @@
 :root {
   --mint: #319789;
   --t-mint:#21fbc92b;
-  --altura-horario:;
+  --altura-horario: x;
 }
 
 
@@ -82,6 +82,7 @@ b {
     background: white;
     filter: invert(0.8);
     padding: 1rem;
+    margin-top: 0.5rem;
 }
 .drop {
     border-left: 2px solid #88d1bd;

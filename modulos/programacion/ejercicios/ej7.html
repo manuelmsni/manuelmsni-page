@@ -1,0 +1,20 @@
+<a class="trigger inline" onclick="ShowHide('sej7', 'ej7')">⬆️</a>
+<textarea class="code" name="" rows="15" cols="">import java.util.Scanner;
+
+    public class PedirNombre
+    {
+        public static void main(String[] args){
+            String nombre;
+            final byte myAge = 25;
+            byte edad;
+            System.out.println("¿Como te llamas? \"What\' is your name\"?");
+            /* Creamos un objeto de tipo scanner, podemos comprobar la lista de constructores en la api en el cual los parámetros sean del tipo que necesitamos*/
+            Scanner sc = new Scanner(System.in);
+            nombre = sc.next();
+            System.out.println("Hola " + nombre + ", Como estás.");
+            System.out.println("¿Cuántos años tienes?");
+            edad = sc.nextByte();
+            System.out.println("La edad pedida es: " + (myAge==edad));
+        }
+    }</textarea>
+<a class="trigger inline" onclick="ShowHide('sej7', 'ej7')">⬆️</a>
