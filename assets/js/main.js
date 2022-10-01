@@ -17,8 +17,11 @@ $(window).scroll(function() {
   }
 
 window.onload = () => {
-		$('#header').load('../../../../../assets/bits/header.html');
-		$('#footer').load('../../../../../assets/bits/footer.html');
+	var path = require('path');
+    var appDir = path.dirname(require.main.filename);
+
+	$('#header').load('../bits/header.html');
+	$('#footer').load('../bits/footer.html');
 };
 
 function loadHTML(elementId, path) {
