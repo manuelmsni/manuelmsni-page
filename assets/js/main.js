@@ -17,14 +17,9 @@ $(window).scroll(function() {
   }
 
 window.onload = () => {
-	
-};
-
-function callBits() {
 		$('#header').load('../../../../../assets/bits/header.html');
 		$('#footer').load('../../../../../assets/bits/footer.html');
 };
-
 
 function loadHTML(elementId, path) {
 	$(`#${elementId}`).load(`${path}`);
