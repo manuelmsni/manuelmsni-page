@@ -17,6 +17,10 @@ $(window).scroll(function() {
   }
 
 window.onload = () => {
+
+	$('#header').load('manuelmsni.com/assets/bits/header.html');
+	$('#footer').load('manuelmsni.com/assets/bits/footer.html');
+
 	let rgbText, nodes, hues;
 	
 	rgbText = document.querySelector(".rgb");
