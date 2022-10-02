@@ -13,16 +13,41 @@
 <a>Idioma artificial diseñado para que sea fácilmente entendible por un humano e interpretable por una máquina. Consta de una serie de reglas y de un conjunto de órdenes o instrucciones. Cada una de estas instrucciones realiza una tarea determinada. A través de una secuencia de instrucciones podemos indicar a una computadora el algoritmo que debe seguir para solucionar un problema dado.</a>
 
 <br/>
+<br/>
 
 <h4 class="inline">Lenguajes compilados e interpretados: </h4>
 <a>Mediante una herramienta llamada compilador, se traduce el conjunto de instrucciones escritas en cualquier lenguaje de programación (código fuente) en binario, comprensible por el hardware de la máquina.</a>
-<p><b>  Enfoques del proceso de traducción</b>:</p>
+<p><b>&emsp;Enfoques del proceso de traducción</b>:</p>
 <ul>
     <li>
-        <p><b>Compilación</b>: traduce todas las instrucciones del código fuente y almacena el código máquina generado. Permite ejecutar el programa, sin volver a compilarlo y sin requerir el código fuente</p>
+        <p><b>Compilación</b>: Traduce todas las instrucciones del código fuente y almacena el código máquina generado. Permite ejecutar el programa, sin volver a compilarlo y sin requerir el código fuente</p>
     </li>
     <li>
-        <p><b>Interpretación</b>: consiste en traducir el código fuente instrucción a instrucción e ir ejecutando, es decir, solo se traduce y ejecuta la siguiente instrucción que necesitamos. El proceso continuará sucesivamente hasta que la ejecución termine. Por regla general, el código máquina obtenido en la interpretación no se suele almacenar, lo que obliga a volver a interpretar cada vez que se necesite un programa.</p>
+        <p><b>Interpretación</b>: Consiste en traducir el código fuente instrucción a instrucción e ir ejecutando, es decir, solo se traduce y ejecuta la siguiente instrucción que necesitamos. El proceso continuará sucesivamente hasta que la ejecución termine. Por regla general, el código máquina obtenido en la interpretación no se suele almacenar, lo que obliga a volver a interpretar cada vez que se necesite un programa.</p>
+    </li>
+</ul>
+
+<p><b>&emsp;Conceptos relativos a la compilación e interpretación</b>:</p>
+<ul>
+    <li>
+        <p><b>Tiempo de compilación</b>: es el intervalo de tiempo durante el cual se compila un programa.</p>
+    </li>
+    <li>
+        <p><b>Tiempo de ejecución</b>: es el intervalo de tiempo durante el cual un programa se ejecuta.</p>
+    </li>
+</ul>
+
+<br/>
+
+<h4 class="inline">Lenguajes multiplataforma: </h4>
+<a>En Java, la compilación del código fuente (.java) genera un bytecode (.class), este no es interpretable directamente por ninguna máquina. Una vez en la máquina de destino, esta tiene su propia JVM (Máquina virtual de java), diferente para cada plataforma, que traducirá el bytecode.class al código máquina correspondiente.</a>
+<p><b>&emsp;Conceptos relativos a la compilación de java</b>:</p>
+<ul>
+    <li>
+        <p><b>Tiempo de compilación</b>: es el espacio de tiempo en el que se traduce el código fuente al bytecode.</p>
+    </li>
+    <li>
+        <p><b>Tiempo de ejecución</b>: tiempo durante el cual el bytecode se interpreta (por la JVM) y se ejecuta por la plataforma correspondiente.</p>
     </li>
 </ul>
 
@@ -32,10 +57,12 @@
 <a>Serie finita de instrucciones bien definidas capaces de resolver un problema computacional. Estas instrucciones han de ser indicadas a la máquina mediante un lenguaje de programación.</a>
 
 <br/>
+<br/>
 
 <h4 class="inline">[IDE] Entorno de desarrollo integrado: </h4>
 <a></a>
 
+<br/>
 <br/>
 
 <h4 class="inline">Paradigma: </h4>
@@ -51,7 +78,10 @@
 
 <h4 class="inline">Clase: </h4>
 <a>Plantilla que agrupa una serie de objetos (reales o no reales) con su identificador y sus propiedades pero comparten características en común.</a>
+
 <br/>
+<br/>
+
 <h4 class="inline">Variable: </h4>
 <a>Espacio de memoria que sirve para alojar información. Un dato como por ejemplo una cadena de texto o un número.</a>
 <ul>
@@ -62,11 +92,14 @@
     <li><b>final</b>: Pertenecen a la clase y no se pueden modificar (solo se les puede asignar valor una vez).</li>
     <li><b>static final</b>: Se conoce como variable constante, la cual conserva su valor a traves de diferentes objetos y no se le puede asignar un valor fuera de la clase en la que fue creada.</li>
 </ul>
+
 <br/>
+
 <h4 class="inline">Método: </h4>
 <a>Porción de código que realiza tareas asociadas a un objeto, básicamente un método es una función que pertenece a un objeto o clase. </a>
 <a>A través de un método dotamos a nuestros objetos de funcionalidades y características comunes a su clase (si nuestro objeto fuera un auto, nuestros métodos asociados podrían ser, ruedas, puertas, motor, etc., que son comunes a todos los objetos auto). </a>
 <a>Un método precisa de un objeto a quien otorgarle funcionalidades.</a>
+<br/>
 <br/>
 <h4 class="inline">Función: </h4>
 <a>Es una agrupación de sentencias que nos permiten ejecutar tareas repetitivas sin tener que escribirlas cada vez, cumple la misma función de un método, pero no necesita de un objeto para existir por sí misma.</a>
