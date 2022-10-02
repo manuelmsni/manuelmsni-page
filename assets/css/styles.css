@@ -21,6 +21,7 @@ textarea {
 h4 {
     line-height: 1.7;
     color: #319789;
+    font-size: 110%;
 }
 
 li {
@@ -28,7 +29,7 @@ li {
 }
 
 b {
-    font-size: 107%;
+    font-size: 101%;
 }
 
 .active {
