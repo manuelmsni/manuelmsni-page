@@ -15,9 +15,15 @@
 <br/>
 <br/>
 
+<h4 class="inline">Algoritmo: </h4>
+<a>Serie finita de instrucciones bien definidas capaces de resolver un problema computacional. Estas instrucciones han de ser indicadas a la máquina mediante un lenguaje de programación.</a>
+
+<br/>
+<br/>
+
 <h4 class="inline">Lenguajes compilados e interpretados: </h4>
 <a>Mediante una herramienta llamada compilador, se traduce el conjunto de instrucciones escritas en cualquier lenguaje de programación (código fuente) en binario, comprensible por el hardware de la máquina.</a>
-<p><b>&emsp;Enfoques del proceso de traducción</b>:</p>
+<p><b>&emsp;- Enfoques del proceso de traducción</b>:</p>
 <ul>
     <li>
         <p><b>Compilación</b>: Traduce todas las instrucciones del código fuente y almacena el código máquina generado. Permite ejecutar el programa, sin volver a compilarlo y sin requerir el código fuente</p>
@@ -27,13 +33,13 @@
     </li>
 </ul>
 
-<p><b>&emsp;Conceptos relativos a la compilación e interpretación</b>:</p>
+<p><b>&emsp;- Conceptos relativos a la compilación e interpretación</b>:</p>
 <ul>
     <li>
-        <p><b>Tiempo de compilación</b>: es el intervalo de tiempo durante el cual se compila un programa.</p>
+        <p><b>Tiempo de compilación</b>: Intervalo de tiempo durante el cual se compila un programa.</p>
     </li>
     <li>
-        <p><b>Tiempo de ejecución</b>: es el intervalo de tiempo durante el cual un programa se ejecuta.</p>
+        <p><b>Tiempo de ejecución</b>: Intervalo de tiempo durante el cual un programa se ejecuta.</p>
     </li>
 </ul>
 
@@ -41,26 +47,20 @@
 
 <h4 class="inline">Lenguajes multiplataforma: </h4>
 <a>En Java, la compilación del código fuente (.java) genera un bytecode (.class), este no es interpretable directamente por ninguna máquina. Una vez en la máquina de destino, esta tiene su propia JVM (Máquina virtual de java), diferente para cada plataforma, que traducirá el bytecode.class al código máquina correspondiente.</a>
-<p><b>&emsp;Conceptos relativos a la compilación de java</b>:</p>
+<p><b>&emsp;- Conceptos relativos a la compilación de java</b>:</p>
 <ul>
     <li>
-        <p><b>Tiempo de compilación</b>: es el espacio de tiempo en el que se traduce el código fuente al bytecode.</p>
+        <p><b>Tiempo de compilación</b>: Espacio de tiempo en el que se traduce el código fuente al bytecode.</p>
     </li>
     <li>
-        <p><b>Tiempo de ejecución</b>: tiempo durante el cual el bytecode se interpreta (por la JVM) y se ejecuta por la plataforma correspondiente.</p>
+        <p><b>Tiempo de ejecución</b>: Tiempo durante el cual el bytecode se interpreta (por la JVM) y se ejecuta por la plataforma correspondiente.</p>
     </li>
 </ul>
 
 <br/>
 
-<h4 class="inline">Algoritmo: </h4>
-<a>Serie finita de instrucciones bien definidas capaces de resolver un problema computacional. Estas instrucciones han de ser indicadas a la máquina mediante un lenguaje de programación.</a>
-
-<br/>
-<br/>
-
 <h4 class="inline">[IDE] Entorno de desarrollo integrado: </h4>
-<a></a>
+<a>Conjunto de herramientas integradas orientadas al desarrollo de software. Proporcionan una enorme cantidad de funcionalidades: editor de texto, ayuda, compilador, depurador... Ej: Bluej, VSC, Eclipse...</a>
 
 <br/>
 <br/>
@@ -82,28 +82,36 @@
 <br/>
 <br/>
 
-<h4 class="inline">Variable: </h4>
-<a>Espacio de memoria que sirve para alojar información. Un dato como por ejemplo una cadena de texto o un número.</a>
-<ul>
-    <li><b>Globales</b>: Se declaran al comienzo de la clase (fuera de los métodos). Su utilización puede ser en toda la clase.</li>
-    <li><b>Locales</b>: Su visibilidad se limita al método sobre el que están definidas. A diferencia de las variables de instancia, no llevan modificadores de visibilidad delante.</li>
-    <li><b>De clase (Campos estáticos)</b>: Están precedidas del modificador static. Esto indica que solo hay una instancia de dicha variable. Es decir, aunque tengamos N objetos de la clase, la variable estática solo se instancia una vez.</li>
-    <li><b>static</b>: Pertenecen a la clase y no se necesita crear un objeto.</li>
-    <li><b>final</b>: Pertenecen a la clase y no se pueden modificar (solo se les puede asignar valor una vez).</li>
-    <li><b>static final</b>: Se conoce como variable constante, la cual conserva su valor a traves de diferentes objetos y no se le puede asignar un valor fuera de la clase en la que fue creada.</li>
-</ul>
-
-<br/>
-
 <h4 class="inline">Método: </h4>
 <a>Porción de código que realiza tareas asociadas a un objeto, básicamente un método es una función que pertenece a un objeto o clase. </a>
 <a>A través de un método dotamos a nuestros objetos de funcionalidades y características comunes a su clase (si nuestro objeto fuera un auto, nuestros métodos asociados podrían ser, ruedas, puertas, motor, etc., que son comunes a todos los objetos auto). </a>
 <a>Un método precisa de un objeto a quien otorgarle funcionalidades.</a>
+
 <br/>
 <br/>
+
 <h4 class="inline">Función: </h4>
 <a>Es una agrupación de sentencias que nos permiten ejecutar tareas repetitivas sin tener que escribirlas cada vez, cumple la misma función de un método, pero no necesita de un objeto para existir por sí misma.</a>
+
 <br/>
+<br/>
+
+<h4 class="inline">Variable: </h4>
+<a>Espacio de memoria que sirve para alojar información. Un dato como por ejemplo una cadena de texto o un número.</a>
+<ul>
+    <li><b>Globales</b>: Se declaran al comienzo de la clase (fuera de los métodos). Su utilización puede ser en toda la clase.</li>
+    <li><b>De método</b>: Su visibilidad se limita al método sobre el que están definidas. A diferencia de las variables de instancia, no llevan modificadores de visibilidad delante.</li>
+    <li><b>Estáticas</b>: Están precedidas del modificador <i>static</i>. Pertenecen a la clase. Pueden ser accedidas sin crear un objeto de la clase. Solo hay una instancia de dicha variable. Es decir, aunque tengamos N objetos de la clase, la variable estática solo se instancia una vez.</li>
+    <li><b>Final</b>: Están precedidas del modificador <i>final</i>. Pertenecen a la clase y no se pueden modificar (solo se les puede asignar valor una vez). Su identificador debe ir en mayúsculas.</li>
+    <!-- 
+
+    <li><b>static final</b>: Se conoce como variable <b>constante</b>, la cual conserva su valor a traves de diferentes objetos y no se le puede asignar un valor fuera de la clase en la que fue creada.</li>
+    
+    -->
+</ul>
+
+<br/>
+
 <h4 class="inline">Parámetros: </h4>
 <a>Los parámetros de una función son los valores que se colocan entre los paréntesis que están al lado del nombre de la función, indicándose el tipo de cada uno y su nombre. </a>
 <a>Son variables locales, a estas variables les asignamos un valor antes de que se ejecute la función, su ámbito de validez, por tanto, es el propio cuerpo de la función. </a>
