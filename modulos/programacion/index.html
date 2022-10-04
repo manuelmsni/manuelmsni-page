@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>manuelmsni</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../../assets/css/styles.css">
+
+
+    </head>
+
+    <body>
+        <section id="header"></section>
+
+        <section id="content">
+            <div class="margins">
+                <h1>Programación</h1>
+                <a class="button pointer" onclick="ShowHide('ap', 'pr')">Apuntes</a>
+                <a class="button pointer" onclick="ShowHide('pr', 'ap')">Ejercicios</a>
+                <hr style="margin-top: 2px;"/>
+
+                <div class="ap">
+                    <h3>Terminología <a class="trigger sterms" onclick="loadHTML('Terms', 'apuntes/terminologia.html'), ShowHide('terms', 'sterms')">⬇️</a></h3>
+                    <div id="Terms" class="hidden terms drop"></div>
+
+                    <h3>Tipos de datos: <a class="trigger sdatatypes inline" onclick="loadHTML('Datatypes', 'apuntes/tiposdedatos.html'), ShowHide('datatypes', 'sdatatypes')">⬇️</a></h3>
+                    <div id="Datatypes" class="hidden datatypes drop"></div>
+                    
+                    <h3>Operadores: <a class="trigger soperators inline" onclick="loadHTML('Operators', 'apuntes/operadores.html'), ShowHide('operators', 'soperators')">⬇️</a></h3>
+                    <div id="Operators" class="hidden drop operators"></div>
+
+                    <h3>Palabras reservadas (keywords): <a class="trigger skeywords inline" onclick="loadHTML('Keywords', 'apuntes/palabrasreservadas.html'), ShowHide('keywords', 'skeywords')">⬇️</a></h3>
+                    <div id="Keywords" class="hidden drop keywords"></div>
+
+                    <h3>Tema 1: <a class="trigger sud1 inline" onclick="loadHTML('Ud1', 'apuntes/ud1.html'), ShowHide('ud1', 'sud1')">⬇️</a></h3>
+                    <div id="Ud1" class="hidden drop ud1"></div>
+                </div>
+                
+                <!-- ================================ Ejercicios ================================  -->
+                
+                <div class="pr hidden">
+                    <h3>[Ej 1] "Programa" un huevo frito <a class="trigger sej1 inline" onclick="loadHTML('Ej1', 'ejercicios/ej1.html'), ShowHide('ej1', 'sej1')">⬇️</a></h3>
+                    <div id="Ej1" class="hidden drop ej1"></div>
+
+                    <h3>[Ej 2] ¿Qué es Java? <a class="trigger sej2 inline" onclick="loadHTML('Ej2', 'ejercicios/ej2.html'), ShowHide('ej2', 'sej2')">⬇️</a></h3>
+                    <div id="Ej2" class="hidden drop ej2"></div>
+
+                    <h3>[Ej 3] Introducción a clases: "HolaMundoCruel" <a class="trigger sej3 inline" onclick="loadHTML('Ej3', 'ejercicios/ej3.html'), ShowHide('ej3', 'sej3')">⬇️</a></h3>
+                    <div id="Ej3" class="hidden drop ej3"></div>
+
+                    <h3>[Ej 4] Imprimir mensajes por consola <a class="trigger sej4 inline" onclick="loadHTML('Ej4', 'ejercicios/ej4.html'), ShowHide('ej4', 'sej4')">⬇️</a></h3>
+                    <div id="Ej4" class="hidden drop ej4"></div>
+
+                    <h3>[Ej 5]  <a class="trigger sej5 inline" onclick="loadHTML('Ej5', 'ejercicios/ej5.html'), ShowHide('ej5', 'sej5')">⬇️</a></h3>
+                    <div id="Ej5" class="hidden drop ej5"></div>
+
+                    <h3>[Ej 6] Horario mediante mensajes por consola <a class="trigger sej6 inline" onclick="loadHTML('Ej6', 'ejercicios/ej6.html'), ShowHide('ej6', 'sej6')">⬇️</a></h3>
+                    <div id="Ej6" class="hidden drop ej6"></div>
+
+                    <h3>[Ej 7] Solicitar datos por consola <a class="trigger sej7 inline" onclick="loadHTML('Ej7', 'ejercicios/ej7.html'), ShowHide('ej7', 'sej7')">⬇️</a></h3>
+                    <div id="Ej7" class="hidden drop ej7"></div>
+
+                    <h3>[Ej 8] Comparación de decimales (Con margen de error) <a class="trigger sej8 inline" onclick="loadHTML('Ej8', 'ejercicios/ej8.html'), ShowHide('ej8', 'sej8')">⬇️</a></h3>
+                    <div id="Ej8" class="hidden drop ej8"></div>
+
+                    <h3>[Ej 9]  <a class="trigger sej9 inline" onclick="loadHTML('Ej9', 'ejercicios/ej9.html'), ShowHide('ej9', 'sej9')">⬇️</a></h3>
+                    <div id="Ej9" class="hidden drop ej9"></div>
+
+                    <h3>[Ej 10]  <a class="trigger sej10 inline" onclick="loadHTML('Ej10', 'ejercicios/ej10.html'), ShowHide('ej10', 'sej10')">⬇️</a></h3>
+                    <div id="Ej10" class="hidden drop ej10"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="footer"></section>
+
+        <script src="https://manuelmartinsantamaria.com/assets/vendor/jquery/jquery.min.js"></script>
+
+        <script src="../../assets/js/main.js"></script>
+    
+    </body>
+
+</html>
