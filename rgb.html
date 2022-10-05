@@ -1,19 +1,34 @@
-<p>Para establecer el color de un elemento <strong>HTML</strong>, se le asigna una propiedad en <strong>CSS</strong>, en esta se especifica que el elemento es de dicho color.</p>
-<p><strong>CSS</strong> hace uso de la codificación <strong style="color: red;">R</strong><strong style="color: green;">G</strong><strong style="color: blue;">B</strong> para establecer los colores. En la codificación <strong style="color: red;">R</strong><strong style="color: green;">G</strong><strong style="color: blue;">B</strong> se emplea un byte para representar cada uno de los tres "colores primarios luz" (<strong style="color: red;">R</strong>ed, <strong style="color: green;">G</strong>reen y <strong style="color: blue;">B</strong>lue). No obstante los navegadores también soportan el manejo de la transparencia de los elementos, para lo cual se reserva un byte adicional para el canal <strong>Alpha</strong>.</p>
-<p>En notación <strong style="color: red;">R</strong><strong style="color: green;">G</strong><strong style="color: blue;">B</strong> este canal se suele representar como un número de 0 a 1 <span style="color: #666699;">(siendo 0 completamente transparente y 1 completamente opaco)</span> o como un porcentaje de 0% a 100% <span style="color: #666699;">(siendo 0% completamente transparente y 100% completamente opaco)</span>. En notación <strong>hexadecimal</strong> se añaden dos dígitos de 00 a ff <span style="color: #666699;">(siendo 00 completamente transparente y ff completamente opaco)</span>.</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manuelmsni</title>
+</head>
+
+<body>
+
+<p>Para establecer el color de un elemento <strong>HTML</strong>, se le asigna una propiedad enÂ <strong>CSS</strong>, en esta seÂ especifica que el elemento es de dicho color.</p>
+<p><strong>CSS</strong> hace uso de la codificaciÃ³n <strong style="color: red;">R</strong><strong style="color: green;">G</strong><strong style="color: blue;">B</strong> para establecer los colores. En la codificaciÃ³n <strong style="color: red;">R</strong><strong style="color: green;">G</strong><strong style="color: blue;">B</strong> se emplea un byte para representar cada uno de los tres "colores primarios luz" (<strong style="color: red;">R</strong>ed, <strong style="color: green;">G</strong>reen y <strong style="color: blue;">B</strong>lue). No obstante los navegadores tambiÃ©n soportan el manejo de la transparencia de los elementos, para lo cual se reserva un byte adicional para el canal <strong>Alpha</strong>.</p>
+<p>En notaciÃ³n <strong style="color: red;">R</strong><strong style="color: green;">G</strong><strong style="color: blue;">B</strong> este canal se suele representar como un nÃºmero de 0 a 1 <span style="color: #666699;">(siendo 0 completamente transparente y 1 completamente opaco)</span> o como un porcentaje de 0% a 100% <span style="color: #666699;">(siendo 0% completamente transparente y 100% completamente opaco)</span>. En notaciÃ³n <strong>hexadecimal</strong>Â se aÃ±aden dos dÃ­gitos de 00 a ff <span style="color: #666699;">(siendo 00 completamente transparente y ff completamente opaco)</span>.</p>
 <p>Sin hacer uso del canal Alpha, podemos especificar el color blanco en <strong style="color: red;">R</strong><strong style="color: green;">G</strong><strong style="color: blue;">B</strong> dentro de una propiedad <strong>CSS</strong> con diferentes notaciones:</p>
 <ul>
 <li><span>rgb(<span>255 255 255</span>)</span></li>
 <li><span>#ffffff</span></li>
 </ul>
-<p>Si quisiéramos especificar el valor Alpha al 75% de opacidad del color blanco, podríamos hacerlo de diferentes formas:</p>
+<p>Si quisiÃ©ramos especificar el valor AlphaÂ al 75% de opacidad del color blanco, podrÃ­amos hacerlo de diferentes formas:</p>
 <ul>
 <li><span>rgb(255 255 255 / 75%)</span></li>
 <li><span class="value">rgba(255 255 255 / 0.75)</span><span>;</span></li>
 <li>#ffffffbf</li>
 </ul>
 <hr />
-<p>Podemos visualizar un ejemplo rápido en Chrome. Si en un elemento de la página web hacemos clic derecho y seleccionamos inspeccionar, a la derecha nos aparecen las "herramientas para desarrolladores", en estas podemos consultar el código <strong>CSS</strong>.</p>
+<p>Podemos visualizar un ejemplo rÃ¡pido en Chrome. Si en un elemento de la pÃ¡gina web hacemos clic derecho y seleccionamos inspeccionar, a la derecha nos aparecen las "herramientas para desarrolladores", en estas podemos consultar el cÃ³digo <strong>CSS</strong>.</p>
 <p style="text-align: center;"><img style="max-width: 90%; border: 2px solid #7FFFC5;" src="https://manuelmsni.com/assets/img/ej_1.jpg" alt="" /></p>
-<p>Si nos ubicamos en un fragmento de código en el cual se especifique un color en <strong>hexadecimal</strong> <span style="color: #666699;">(símbolo "#" seguido de 6 dígitos o caracteres)</span> y hacemos clic en el cuadrado que lo precede, se abre una pequeña interfaz que nos permite modificar el mismo sin necesidad de conocer la notación para la codificación <strong style="color: red;">R</strong><strong style="color: green;">G</strong><strong style="color: blue;">B</strong>. Si en esta modificamos el canal alfa, podemos apreciar como al código en hexadecimal se le añaden dos caracteres extra <span style="color: #666699;">(1 byte)</span>.</p>
+<p>Si nos ubicamos en un fragmento de cÃ³digo en el cual se especifique un color en <strong>hexadecimal</strong> <span style="color: #666699;">(sÃ­mbolo "#" seguido de 6 dÃ­gitos o caracteres)</span> y hacemos clic en el cuadrado que lo precede, se abre una pequeÃ±a interfaz que nos permite modificar el mismo sin necesidad de conocer la notaciÃ³n para la codificaciÃ³n <strong style="color: red;">R</strong><strong style="color: green;">G</strong><strong style="color: blue;">B</strong>. Si en esta modificamos el canal alfa, podemos apreciar como al cÃ³digo en hexadecimal se le aÃ±aden dos caracteres extra <span style="color: #666699;">(1 byte)</span>.</p>
 <p style="text-align: center;"><img style="max-width: 90%; border: 2px solid #7FFFC5;" src="https://manuelmsni.com/assets/img/ej_2.jpg" alt="" width="552" height="382" /></p>
+
+</body>
+
+</html>
