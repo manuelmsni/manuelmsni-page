@@ -1,14 +1,14 @@
 // Toggle .header-scrolled class to #header when page is scrolled
 $(window).scroll(function() {
     if ($(this).scrollTop() > 50) {
-      $('#header').addClass('header-scrolled');
+      $('#Header').addClass('header-scrolled');
     } else {
-      $('#header').removeClass('header-scrolled');
+      $('#Header').removeClass('header-scrolled');
     }
   });
 
   if ($(window).scrollTop() > 50) {
-    $('#header').addClass('header-scrolled');
+    $('#Header').addClass('header-scrolled');
   }
 
   function ShowHide(ShowClass, HideClass) {
@@ -17,8 +17,8 @@ $(window).scroll(function() {
   }
 
 window.onload = () => {
-	$('#header').load('../../../../../../assets/bits/header.html');
-	$('#footer').load('../../../../../../bits/footer.html');
+	$('#Header').load('../../../../../../assets/bits/header.html');
+	$('#Footer').load('../../../../../../bits/footer.html');
 };
 
 function loadHTML(elementId, path) {
