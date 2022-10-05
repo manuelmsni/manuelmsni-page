@@ -24,5 +24,5 @@ function loadHTML(elementId, path) {
 
 window.onload = () => {
   loadHTML('Header', '../../../../../../assets/bits/header.html');
-  loadHTML('Footer', '../../../../../../bits/footer.html');
+  loadHTML('Footer', '../../../../../../assets/bits/footer.html');
 };
