@@ -16,11 +16,13 @@ $(window).scroll(function() {
     $(`.${HideClass}`).hide();
   }
 
-window.onload = () => {
-	$('#Header').load('../../../../../../assets/bits/header.html');
-	$('#Footer').load('../../../../../../bits/footer.html');
-};
+
 
 function loadHTML(elementId, path) {
 	$(`#${elementId}`).load(`${path}`);
 }
+
+window.onload = () => {
+  loadHTML('Header', '../../../../../../assets/bits/header.html');
+  loadHTML('Footer', '../../../../../../bits/footer.html');
+};

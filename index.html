@@ -96,6 +96,133 @@
 
         }
 
+        /* =================== Reloj =================== */
+
+        $(document).ready(function () {
+            setInterval(time, 1000);
+        });
+
+        function time() {
+            var now = new Date();
+            var month = now.getMonth() + 1;
+            now.setMonth(month);
+
+            var horas = ("0" + now.getHours()).slice(-2);
+            var minutos = ("0" + now.getMinutes()).slice(-2);
+            var segundos = ("0" + now.getSeconds()).slice(-2);
+
+            var dia = ("0" + now.getDate()).slice(-2);
+            var mes = ("0" + now.getMonth()).slice(-2);
+            var amo = ("0" + now.getFullYear()).slice(-4);
+
+            var time = "[ " + dia + "/" + mes + "/" + amo + " ] - [ " + horas + ":" + minutos + ":" + segundos + " ]";
+            document.getElementById('date').innerHTML = time;
+
+            var thistime = new Date();
+            var day = thistime.getDay();
+            const weekday = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado'];
+            document.getElementById('weekday').innerHTML = weekday[day];
+        }
+
+        /* ================== Horario ================== */
+
+        $(document).ready(function () {
+            setInterval(horario, 1000);
+            tableHeight();
+        });
+
+        window.onresize = function () {
+            tableHeight();
+        }
+
+        function tableHeight() {
+            ancho = $("div").width();
+            altura = (ancho) * (258 / 1406);
+            $("body").css("--altura-horario", altura + "px");
+        }
+
+
+        function horario() {
+
+            if (0 < day && day < 6) {
+
+                var now = new Date();
+
+                $('.active').removeClass('active');
+                $('.activeBorder').removeClass('activeBorder');
+
+                var decimalTime = now.getHours() + (now.getMinutes() / 100);
+                var tt = 0;
+                var td = 0;
+
+                if (day == 1) {
+                    $('.a').addClass('active');
+                    var dd = "a";
+                } if (day == 2) {
+                    $('.b').addClass('active');
+                    var dd = "b";
+                } if (day == 3) {
+                    $('.c').addClass('active');
+                    var dd = "c";
+                } if (day == 4) {
+                    $('.d').addClass('active');
+                    var dd = "d";
+                } if (day == 5) {
+                    $('.e').addClass('active');
+                    var dd = "e";
+                }
+
+                if (16.00 <= decimalTime && decimalTime < 21.45) {
+
+                    if (16.00 <= decimalTime && decimalTime < 16.50) {
+                        // Hora 1
+                        var tt = 1;
+                    } if (16.50 <= decimalTime && decimalTime < 16.55) {
+                        // Descanso 1
+                        var tb = 1;
+                    } if (16.55 <= decimalTime && decimalTime < 17.45) {
+                        // Hora 2
+                        var tt = 2;
+                    } if (17.45 <= decimalTime && decimalTime < 17.50) {
+                        // Descanso 2
+                        var tb = 2;
+                    } if (17.50 <= decimalTime && decimalTime < 18.40) {
+                        //Hora 3
+                        var tt = 3;
+                    } if (18.40 <= decimalTime && decimalTime < 19.05) {
+                        // Recreo
+                        var tt = 4;
+                    } if (19.05 <= decimalTime && decimalTime < 19.55) {
+                        //Hora 4
+                        var tt = 5;
+                    } if (19.55 <= decimalTime && decimalTime < 20.00) {
+                        // Descanso 3
+                        var tb = 3;
+                    } if (20.00 <= decimalTime && decimalTime < 20.50) {
+                        //Hora 5
+                        var tt = 6;
+                    } if (20.50 <= decimalTime && decimalTime < 20.55) {
+                        // Descanso 4
+                        var tb = 4;
+                    } if (20.55 <= decimalTime && decimalTime < 21.45) {
+                        //Hora 6
+                        var tt = 7;
+                    }
+
+                    if (0 < tt) {
+                        var code = dd + tt;
+                        $('.' + code).addClass('active');
+                        $('.t' + tt).addClass('active');
+                    } if (0 < tb) {
+                        var code = dd + "s" + tb;
+                        $('.' + code).addClass('activeBorder');
+                        $('.ts' + tb).addClass('activeBorder');
+                    }
+                }
+            }
+
+        };
+
     </script>
 
 </body>
