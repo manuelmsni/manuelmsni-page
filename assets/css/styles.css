@@ -52,7 +52,7 @@ b {
     border: 1px solid var(--mint);
 }
 
-#date, #weekday {
+#Date, #Weekday {
     font-size: 1rem;
     color: var(--mint);
 }
@@ -118,7 +118,7 @@ b {
     --header-bottom-border-scrolled: #00000024;
 }
 
-#header {
+#Header {
     position: fixed;
     top: 0;
     left: 0;
@@ -135,7 +135,7 @@ b {
     border-bottom: 2px solid var(--header-bottom-border-scrolled);
 }
 
-#brand {
+#Brand {
     display: block;
     right: 0px;
     position: absolute;
@@ -152,7 +152,7 @@ b {
     color: #ffffff;
 }
 
-#content {
+#Content {
     min-height: 2000px;
     width: 850px;
     max-width: 100%;
@@ -167,6 +167,15 @@ b {
 
 .margins {
     padding: 3rem;
+}
+
+#Footer {
+    width: 100%;
+    height: 60px;
+    background: var(--header-background-scrolled);
+    border-top: 2px solid var(--header-bottom-border-scrolled);
+    text-align: center;
+    color: white;
 }
 
 @media (max-width: 850px) {

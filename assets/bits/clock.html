@@ -1,6 +1,10 @@
-<h1>Horario <a id="date"></a> <a id="weekday"></a></h1>
+<h1>Horario <a id="Date"></a> <a id="Weekday"></a></h1>
 
 <script>
+
+    $(document).ready(function () {
+        setInterval(time, 1000);
+    });
 
     function time() {  
         var now = new Date();
