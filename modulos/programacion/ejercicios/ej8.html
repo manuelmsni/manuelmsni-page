@@ -1,18 +1,36 @@
 <a class="trigger inline" onclick="ShowHide('sej8', 'ej8')">⬆️</a>
-<textarea class="code" name="" rows="17" cols="">import java.util.Scanner;
-
-public class CompararDouble{
+<textarea class="code" name="" rows="15" cols="">
+public class Logica{
+    static boolean a = true;
+    static boolean b = true;
+    static boolean c = false;
+    static boolean d = false;
     public static void main(String[] args){
-        final double PI = 3.1416;
-        final double PRECISION = 0.0001;
-        double numero, dif, difAbs;
-        System.out.println("Introduce el número PI");
-        Scanner sc = new Scanner(System.in);
-        numero = sc.nextDouble();
-        dif = PI - numero;
-        difAbs = Math.abs(dif);
-        System.out.println("¿El número introducido es PI?: " + (difAbs <= PRECISION));
-        System.out.println("El número introducido se desvía de PI por:" + dif + ".");
+        Logica prog = new Logica();
+        System.out.println("|  El valor de a: \t" + prog.a + "\t|");
+        System.out.println("|  El valor de b: \t" + prog.b + "\t|");
+        System.out.println("|  El valor de c: \t" + prog.c + "\t|");
+        line(33);
+        System.out.println("El valor de a && b: \t" + (a&&b));
+        System.out.println("El valor de b && c: \t" + (b&&c));
+        line(29);
+        System.out.println("El valor de a || b: \t" + (a||b));
+        System.out.println("El valor de b || c: \t" + (b||c));
+        line(29);
+        /* Si las dos condiciones son iguales da false */
+        /* Si una es diferente, devuelve true */
+        System.out.println("El valor de a xor b: \t" + (a^b));
+        System.out.println("El valor de b xor c: \t" + (b^c));
+        System.out.println("El valor de c xor d: \t" + (c^d));
+        line(29);
+        System.out.println("El valor negado de a && b: \t" + !(a&&b));
+        System.out.println("El valor negado de a || b: \t" + !(a||b));
+        System.out.println("El valor negado de a xor b: \t" + !(a^b));
     }
+    
+    private static void line(int number){
+        System.out.println("-".repeat(number));
+    }
+    
 }</textarea>
 <a class="trigger inline" onclick="ShowHide('sej8', 'ej8')">⬆️</a>

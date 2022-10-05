@@ -1,3 +1,24 @@
 <a class="trigger inline" onclick="ShowHide('sej9', 'ej9')">⬆️</a>
-<textarea class="code" name="" rows="15" cols=""></textarea>
+<textarea class="code" name="" rows="15" cols="">import java.util.Scanner;
+    public class CondicionalConOperadorTernario{
+        public static void main(){
+            final int REFERENCIA1 = 12;
+            final int REFERENCIA2 = 18;
+            final int REFERENCIA3 = 30;
+            final int REFERENCIA4 = 40;
+            final int REFERENCIA5 = 50;
+            int edad;
+            String nombre;
+            final String pelota = "ana";
+            String output;
+            Scanner sc = new Scanner(System.in);
+            System.out.println("¿Como te llamas?");
+            nombre = sc.next();
+            System.out.println("Hola " + nombre + ".");
+            System.out.println("¿Cuantos años tienes?");
+            edad = sc.nextInt();
+            output = nombre.equalsIgnoreCase(pelota) ? "Que joven eres " + nombre + "." : edad >= REFERENCIA5 ? "Ya pesan los años " + nombre + ", tienes " + edad + "." : edad >= REFERENCIA4 ? nombre + ", te conservas bien para tener " + edad + " años.": edad >= REFERENCIA3 ? nombre + ", con " + edad + " años todavía estás en la flor de la vida." : edad >= REFERENCIA2 ? nombre + ", eres mayor de edad, tienes " + edad + " años." : REFERENCIA2 > edad && edad >= REFERENCIA1 ? nombre + ", eres joven, pero ya tienes " + edad + " años." : REFERENCIA1 > edad && edad > 1 ? nombre + ", eres un crio, solo tienes " + edad + " años." : edad == 1 ? nombre + ", eres un bebé, solo tienes un año." : edad == 0 ? nombre + ", eres un bebé, no tienes ni un año." : edad < 0 ? nombre + ", lumbreras. ¿Como vas a tener " + edad + " años. No habrías nacido.": "No entendí, jajajaja. Saludos.";
+            System.out.println(output);
+        }
+    }</textarea>
 <a class="trigger inline" onclick="ShowHide('sej9', 'ej9')">⬆️</a>

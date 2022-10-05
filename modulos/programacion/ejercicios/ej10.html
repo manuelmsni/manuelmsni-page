@@ -1,3 +1,21 @@
 <a class="trigger inline" onclick="ShowHide('sej10', 'ej10')">⬆️</a>
-<textarea class="code" name="" rows="15" cols=""></textarea>
+<textarea class="code" name="" rows="15" cols="">import java.util.Scanner;
+public class EjercicioLogica
+    {
+        public static void main(String[] args){
+            byte age, age1, age2;
+            String gender, output, gender1;
+            Scanner sc = new Scanner(System.in);
+            age1 = 65;
+            age2 = 20;
+            gender1 = "mujer";
+            System.out.println("El estado está dando una ayuda a menores de " + age2 + " años y a mayores de " + age1 + " años.\nAunque hay una condición extra, tienes que ser " + gender1 + ". ¿Podrás obtener la ayuda?");
+            System.out.println("Dime tu edad");
+            age = sc.nextByte();
+            System.out.println("Dime tu genero");
+            gender = sc.next();
+            output = (age >= age1 || age <= age2) && gender.equalsIgnoreCase(gender1) ? "Eres " + gender + " mayor de " + age1 + " o menor de " + age2 + ". Puedes solicitar la ayuda." : "No cumples los requisitos. No puedes solicitar la ayuda.";
+            System.out.println(output);
+        }
+    }</textarea>
 <a class="trigger inline" onclick="ShowHide('sej10', 'ej10')">⬆️</a>

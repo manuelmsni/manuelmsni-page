@@ -1,20 +1,17 @@
 <a class="trigger inline" onclick="ShowHide('sej7', 'ej7')">⬆️</a>
-<textarea class="code" name="" rows="19" cols="">import java.util.Scanner;
-
-public class PedirNombre
-{
+<textarea class="code" name="" rows="17" cols="">import java.util.Scanner;
+public class CompararDouble{
     public static void main(String[] args){
-        String nombre;
-        final byte myAge = 25;
-        byte edad;
-        System.out.println("¿Como te llamas? \"What\' is your name\"?");
-        /* Creamos un objeto de tipo scanner, podemos comprobar la lista de constructores en la api en el cual los parámetros sean del tipo que necesitamos*/
+        final double PI = 3.1416;
+        final double PRECISION = 0.0001;
+        double numero, dif, difAbs;
+        System.out.println("Introduce el número PI");
         Scanner sc = new Scanner(System.in);
-        nombre = sc.next();
-        System.out.println("Hola " + nombre + ", Como estás.");
-        System.out.println("¿Cuántos años tienes?");
-        edad = sc.nextByte();
-        System.out.println("La edad pedida es: " + (myAge==edad));
+        numero = sc.nextDouble();
+        dif = PI - numero;
+        difAbs = Math.abs(dif);
+        System.out.println("¿El número introducido es PI?: " + (difAbs <= PRECISION));
+        System.out.println("El número introducido se desvía de PI por: " + dif);
     }
 }</textarea>
 <a class="trigger inline" onclick="ShowHide('sej7', 'ej7')">⬆️</a>
