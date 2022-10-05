@@ -58,8 +58,8 @@
     <script>
 
         function callBits() {
-            $('#Header').load('assets/bits/header.html');
-            $('#Footer').load('assets/bits/footer.html');
+            loadHTML('Header', 'assets/bits/header.html')
+            loadHTML('Footer', 'assets/bits/footer.html')
         }
 
         window.onload = () => {
