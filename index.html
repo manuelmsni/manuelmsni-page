@@ -58,14 +58,14 @@
     <script>
 
         function callBits() {
-            loadHTML('Header', 'assets/bits/header.html')
-            loadHTML('Footer', 'assets/bits/footer.html')
+            loadHTML('Header', 'assets/bits/header.html');
+            loadHTML('Footer', 'assets/bits/footer.html');
+            loadHTML('DateContainer', 'assets/bits/clock.html');
+            loadHTML('ScheduleContainer', 'assets/bits/horario_dam1.html');
         }
 
         window.onload = () => {
             callBits();
-            loadHTML('DateContainer', 'assets/bits/clock.html')
-            loadHTML('ScheduleContainer', 'assets/bits/horario_dam1.html')
         };
 
         /*
@@ -96,7 +96,7 @@
             })();
 
         }
-        
+
         */
 
         /* =================== Reloj =================== */
@@ -119,12 +119,12 @@
             var amo = ("0" + now.getFullYear()).slice(-4);
 
             var time = "[ " + dia + "/" + mes + "/" + amo + " ] - [ " + horas + ":" + minutos + ":" + segundos + " ]";
-            document.getElementById('date').innerHTML = time;
+            document.getElementById('Date').innerHTML = time;
 
             var thistime = new Date();
             var day = thistime.getDay();
             const weekday = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado'];
-            document.getElementById('weekday').innerHTML = weekday[day];
+            document.getElementById('Weekday').innerHTML = weekday[day];
         }
 
         /* ================== Horario ================== */
