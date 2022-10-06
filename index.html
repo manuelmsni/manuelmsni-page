@@ -102,7 +102,7 @@
 
         $(document).ready(function () {
             setInterval(horario, 1000);
-            tableHeight();
+            setTimeout(tableHeight, 3000)
         });
 
         window.onresize = function () {
@@ -113,7 +113,6 @@
             ancho = $('#ScheduleTable').width();
             altura = (ancho) * (258 / 1406);
             $('#ScheduleTable').css("height", altura + "px");
-            $('#ScheduleTable').css("--ancho-detectado", ancho + "px");
         }
 
         function horario() {
