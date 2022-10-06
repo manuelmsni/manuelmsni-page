@@ -1,0 +1,93 @@
+
+:root {
+    --navigation-hamburguer-color: #fff;
+    --navigation-hamburguer-color-hover: #9d9a99;
+    --navigation-hamburguer-shadow: #00000059;
+    --navigation-hamburguer-shadow-hover: #00000059;
+    --link-li-background: transparent;
+    --link-li-background-hover: transparent;
+    --link-li-shadow: transparent;
+    --link-li-shadow-hover: transparent;
+    --link-li-background-scrolled: transparent;
+    --link-li-background-scrolled-hover: transparent;
+    --link-li-shadow-scrolled: transparent;
+    --link-li-shadow-scrolled-hover: rgb(0 0 0 / 8%);
+    --link-li-borders: transparent;
+    --link-li-borders-hover: #9d9a99;
+    --link-li-borders-scrolled: transparent;
+    --link-li-borders-scrolled-hover: #9d9a99;
+}
+
+.nav-trigger {
+    display: block;
+    margin-left: 0.8rem!important;
+}
+
+.nav-trigger:hover {
+    cursor: pointer;
+}
+
+.nav-cross {
+    height: 4px;
+    width: 24px;
+    border-radius: 3px;
+    background: var(--navigation-hamburguer-color);
+    box-shadow: 0px 0px 4px 0.5px var(--navigation-hamburguer-shadow);
+    position: relative;
+    display: block;
+    animation-name: parentOp;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+.nav-trigger:hover .nav-cross {
+    background: var(--navigation-hamburguer-color-hover);
+    box-shadow: 0px 0px 4px 0.5px var(--navigation-hamburguer-shadow-hover);
+}
+
+.nav-cross.active {
+    animation-name: parentOp_active;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.nav {
+    height: fit-content;
+    padding: 0.5rem!important;
+    left: -100px;
+    position: absolute!important;
+    display: block!important;
+    top: 48px!important;
+    transition: all 0.5s;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+
+.nav li {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: 4px solid var(--link-li-borders-scrolled);
+    background: var(--link-li-background-scrolled);
+    box-shadow: 0px -20px 20px 1px var(--link-li-shadow-scrolled) inset;
+}
+
+.header-scrolled .nav li:hover {
+    border-bottom: 4px solid var(--link-li-borders-scrolled-hover);
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    transition: color 0.1s,transform 0.2s ease-out;
+    box-shadow: 0px -20px 20px 1px var(--link-li-shadow-scrolled-hover) inset;
+    background: var(--link-li-background-scrolled-hover);
+}
