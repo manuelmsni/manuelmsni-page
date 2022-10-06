@@ -29,7 +29,7 @@
     transition: all 0.5s;
 }
 
-#header ul{
+#Header ul{
     display: flex;
     list-style: none;
     position: absolute;
@@ -38,7 +38,7 @@
     transition: all 0.5s;
 }
 
-#header ul li {
+#Header ul li {
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 18px;
