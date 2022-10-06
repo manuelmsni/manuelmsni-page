@@ -29,7 +29,7 @@
     transition: all 0.5s;
 }
 
-nav ul {
+nav ul{
     display: flex;
     list-style: none;
     position: absolute;
@@ -38,21 +38,26 @@ nav ul {
     transition: all 0.5s;
 }
 
-.nav li {
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-bottom: 4px solid var(--link-li-borders-scrolled);
-    background: var(--link-li-background-scrolled);
-    box-shadow: 0px -20px 20px 1px var(--link-li-shadow-scrolled) inset;
+nav ul li {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    align-self: center;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 1px solid var(--link-li-borders);
+    border-right: 1px solid var(--link-li-borders);
+    cursor: pointer;
+    background: var(--link-li-background);
+    box-shadow: 0px -20px 20px 1px var(--link-li-shadow) inset;
 }
 
-.header-scrolled .nav li:hover {
-    border-bottom: 4px solid var(--link-li-borders-scrolled-hover);
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    transition: color 0.1s,transform 0.2s ease-out;
-    box-shadow: 0px -20px 20px 1px var(--link-li-shadow-scrolled-hover) inset;
-    background: var(--link-li-background-scrolled-hover);
+.nav li:hover {
+    border-left: 1px solid var(--link-li-borders-hover);
+    border-right: 1px solid var(--link-li-borders-hover);
+    background: var(--link-li-background-hover);
+    box-shadow: 0px -20px 20px 1px var(--link-li-shadow-hover) inset;
 }
 
 /* Hamburguer */

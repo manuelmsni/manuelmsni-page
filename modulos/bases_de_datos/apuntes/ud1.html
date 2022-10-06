@@ -30,7 +30,7 @@
 
 <h4 class="inline">1 Sistemas de información orientados al proceso (sistemas de ficheros): </h4>
 <p class="inline">Emplean diversas aplicaciones. Cada aplicación almacena sus propios datos independientemente. La modificación de un dato en una aplicación no afecta al resto de aplicaciones.</p>
-<p>Inconvenientes:</p>
+<h5>Inconvenientes:</h5>
 <ul>
     <li><b>Datos redundantes</b>.</li>
     <li><b>Datos inconsistentes</b>: Si cambias el dato en una aplicación, el mismo dato podría quedar con distinto valor en otra aplicación.</li>
@@ -43,7 +43,7 @@
 
 <h4 class="inline">2 Sistemas de información orientados a los datos (bases de datos): </h4>
 <p class="inline">los datos se centralizan en una base de datos común, en una única estructura lógica que es utilizable por las aplicaciones. Cuando una aplicación modifica un dato, la modificación de dicho dato será visible para el resto de aplicaciones.</p>
-<p>Ventajas:</p>
+<h5>Ventajas:</h5>
 <ul>
     <li><b>Independencia de los datos, los programas y los procesos</b>: Permite modificar los datos sin modificar el código de las aplicaciones.</li>
     <li><b>No redundancia</b>: Menor repetición de datos, solo se indican las relaciones.</li>
@@ -54,7 +54,7 @@
     <li><b>Acceso simultáneo</b>: Es más fácil controlar el acceso de usuarios de forma concurrente. Para evitar interferencias al modificar un mismo dato de forma concurrente, se usan transferencias (conjunto de operaciones simples que se ejecutan como una unidad, o se realizan todas, o no se realiza ninguna). Cuando dos transacciones se ejecutan de forma concurrente pueden darse interferencias, para evitarlo, mientras una transferencia actúa sobre unos datos, estos se bloquean para las demás transferencias generando esperas.</li>
     <li><b>Mayor seguridad</b>: Premite limitar el acceso a los usuarios. Cada tipo de usuario podrá acceder a unas cosas. Permite la generación de usuarios, contraseñas, encriptaciones, copias de respaldo seguras.</li>
 </ul>
-<p>Desventajas:</p>
+<h5>Desventajas:</h5>
 <ul>
     <li><b>Instalación costosa.</b></li>
     <li><b>Personal cualificado.</b></li>
@@ -69,5 +69,36 @@
 
 <br/>
 <br/>
+
+<h4 class="inline">Niveles de abstracción de una base de datos: </h4>
+<p class="inline">El modelo ANSI es una propuesta teórica sobre cómo debe funcionar un sistema gestor de bases de datos.</p>
+<p>Según el modelo ANSI-SPARC, se utilizan tres esquemas para representar los datos:</p>
+<ol>
+    <li><b style="color: #319789;">Esquema externo</b>: Información preparada para el usuario final.</li>
+    <li><b style="color: #319789;">Esquema conceptual</b>: Refleja los datos y relaciones de la base de datos.</li>
+    <li><b style="color: #319789;">Esquema interno</b>: Representa la forma física en la cual están almacenados los datos.</li>
+</ol>
+
+<br/>
+
+<h4 class="inline">Esquema externo: </h4>
+<p class="inline"></p>
+
+<br/>
+<br/>
+
+<h4 class="inline">Esquema conceptual: </h4>
+<p class="inline"></p>
+
+<br/>
+<br/>
+
+<h4 class="inline">Esquema interno: </h4>
+<p class="inline"></p>
+
+<br/>
+<br/>
+
+
 
 <a class="trigger inline" onclick="ShowHide('sud1', 'ud1')">⬆️</a>
