@@ -144,6 +144,7 @@ b {
 #Brand {
     display: block;
     right: 0px;
+    top: 0px;
     position: absolute;
     padding-left: 1rem;
     padding-right: 1rem;
