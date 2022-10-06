@@ -17,7 +17,7 @@ textarea {
 }
 
 h4 {
-    line-height: 1.7;
+    line-height: 1.5;
     color: #319789;
     font-size: 110%;
 }
@@ -28,6 +28,10 @@ h5 {
     line-height: 1;
     color: #319789;
     font-size: 104%;
+}
+
+p {
+    line-height: 1.5;
 }
 
 li {
