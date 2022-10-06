@@ -18,54 +18,6 @@
     --link-li-borders-scrolled-hover: #9d9a99;
 }
 
-.nav-trigger {
-    display: block;
-    margin-left: 0.8rem!important;
-}
-
-.nav-trigger:hover {
-    cursor: pointer;
-}
-
-.center {
-    display: flex;
-    position: absolute;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.nav-cross {
-    height: 4px;
-    width: 24px;
-    border-radius: 3px;
-    background: var(--navigation-hamburguer-color);
-    box-shadow: 0px 0px 4px 0.5px var(--navigation-hamburguer-shadow);
-    position: relative;
-    display: block;
-    animation-name: parentOp;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    opacity: 1;
-}
-
-.nav-trigger:hover .nav-cross {
-    background: var(--navigation-hamburguer-color-hover);
-    box-shadow: 0px 0px 4px 0.5px var(--navigation-hamburguer-shadow-hover);
-}
-
-.nav-cross.active {
-    animation-name: parentOp_active;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
 
 .nav {
     height: fit-content;
@@ -101,4 +53,176 @@ nav ul {
     transition: color 0.1s,transform 0.2s ease-out;
     box-shadow: 0px -20px 20px 1px var(--link-li-shadow-scrolled-hover) inset;
     background: var(--link-li-background-scrolled-hover);
+}
+
+/* Hamburguer */
+
+.center { display: flex; position: absolute; flex-direction: row; align-items: center; justify-content: center; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+.nav-trigger:hover {
+    cursor: pointer;
+}
+
+.nav-cross {
+    height: 4px;
+    width: 24px;
+    border-radius: 3px;
+    background: var(--navigation-hamburguer-color);
+    box-shadow: 0px 0px 4px 0.5px var(--navigation-hamburguer-shadow);
+    position: relative;
+    display: block;
+    animation-name: parentOp;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+.nav-trigger:hover .nav-cross {
+    background: var(--navigation-hamburguer-color-hover);
+    box-shadow: 0px 0px 4px 0.5px var(--navigation-hamburguer-shadow-hover);
+}
+
+.nav-cross::after, .nav-cross::before {
+    content: "";
+    height: 4px;
+    width: 24px;
+    border-radius: inherit;
+    background: inherit;
+    box-shadow: inherit;
+    position: absolute;
+    display: block;
+    opacity: 1;
+}
+
+.nav-cross::before {
+    top: -25px;
+    animation-name: beforeOp;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.nav-cross::after {
+    top: 8px;
+    animation-name: afterOp;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.nav-cross.active {
+    animation-name: parentOp_active;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.nav-cross.active::before {
+    animation-name: beforeOp_active;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.nav-cross.active::after {
+    animation-name: afterOp_active;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes parentOp {
+    0% {
+        height: 0px;
+    }
+    70% {
+        height: 0px;
+    }
+    80% {
+        height: 2px;
+    }
+    90% {
+        height: 3px;
+    }
+    100% {
+        height: 4px;
+    }
+}
+@keyframes beforeOp {
+    0% {
+        top: 0px;
+        transform: rotate(45deg);
+    }
+    50% {
+        top: 0px;
+        transform: rotate(0deg);
+    }
+    70% {
+        top: -8px;
+    }
+    100% {
+        top: -8px;
+    }
+}
+@keyframes afterOp {
+    0% {
+        top: 0px;
+        transform: rotate(135deg);
+    }
+    50% {
+        top: 0px;
+        transform: rotate(0deg);
+    }
+    70% {
+        top: 8px;
+    }
+    100% {
+        top: 8px;
+    }
+}
+@keyframes parentOp_active {
+    0% {
+        height: 8px;
+        
+    }
+    50% {
+        height: 0px;
+    }
+    100% {
+        height: 0px;
+    }
+}
+@keyframes beforeOp_active {
+    0% {
+        top: -8px;
+    }
+    50% {
+        top: 0px;
+    }
+    70% {
+        top: 0px;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 0px;
+        transform: rotate(45deg);
+    }
+}
+@keyframes afterOp_active {
+    0% {
+        top: 8px;
+    }
+    50% {
+        top: 0px;
+    }
+    70% {
+        top: 0px;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 0px;
+        transform: rotate(135deg);
+    }
 }
