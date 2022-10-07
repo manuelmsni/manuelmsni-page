@@ -1,12 +1,40 @@
-<a class="trigger inline" onclick="ShowHide('sud2', 'ud2')">⬆️</a>
+<style>
+    p.entidad {
+    border: 1px solid black;
+    width: fit-content;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+p.entidad_debil {
+    border: 4px double black;
+    width: fit-content;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+p.relacion {
+    position: relative;
+    text-align: center;
+    width: fit-content;
+    aspect-ratio: 1 / 1;
+    transform: translateY(-25%);
+}
+p.relacion:before {
+    content: "";
+    display: block;
+    border: 1px solid black;
+    position: relative;
+    top: 75%;
+    transform: rotate(45deg);
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+</style>
 
-<br/>
-<br/>
+<a class="trigger inline" onclick="ShowHide('sud2', 'ud2')">⬆️</a>
 
 <a class="no" href="https://drive.google.com/file/d/1UMoaW93xg25QAqK9eJyvTTWYB3kbTH1x/view?usp=sharing" target="_blank">Tema 2 (PDF)</a>
 
-<br/>
-<br/>
+<hr/>>
 
 <h4 class="inline">Entidades: </h4>
 <a>¿Que objetos del mundo real necesito? La entidad siempre va en mayusculas y contenido en un rectángulo. (Si voy a guardar más de un dato sobre algo es una entidad).</a>
@@ -39,8 +67,8 @@
 <br/>
 
 <h4 class="inline">Atriobutos: </h4>
-<a></a>
-<p class="atributo"></p>
+<p class="inline"></p>
+<p class="atributo">Nombre</p>
 <p>Los atributos pueden pertenecer a la: </p>
 <ul>
     <li><b>Entidad</b></li>
