@@ -46,6 +46,16 @@ b {
     display:none;
 }
 
+.nav{
+    height: fit-content;
+    padding: 0.5rem!important;
+    left: -100px;
+    position: absolute!important;
+    display: block!important;
+    top: 48px!important;
+    transition: all 0.5s;
+}
+
 #ScheduleContainer .active {
     background: var(--t-mint);
 }
