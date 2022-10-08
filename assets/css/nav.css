@@ -4,6 +4,8 @@
     --navigation-hamburguer-color-hover: #9d9a99;
     --navigation-hamburguer-shadow: #00000059;
     --navigation-hamburguer-shadow-hover: #00000059;
+    --navigation-background: transparent;
+    --navigation-background-scrolled: rgb(69 69 69);
     --link-li-background: transparent;
     --link-li-background-hover: transparent;
     --link-li-shadow: transparent;
@@ -29,10 +31,10 @@
     transition: all 0.5s;
 }
 
-.nav-active {
+.nav .nav-active {
     left: 0!important;
     background: var(--navigation-background);
-} .header-scrolled .nav-active {
+} .header-scrolled .nav .nav-active {
     background: var(--navigation-background-scrolled);
 }
 
