@@ -19,7 +19,7 @@
 }
 
 
-.nav {
+.nav{
     height: fit-content;
     padding: 0.5rem!important;
     left: -100px;
@@ -27,6 +27,22 @@
     display: block!important;
     top: 48px!important;
     transition: all 0.5s;
+}
+
+.nav-active {
+    left: 0!important;
+    background: var(--navigation-background);
+} .header-scrolled .nav-active {
+    background: var(--navigation-background-scrolled);
+}
+
+.nav li {
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+}
+.nav-trigger {
+    display: block;
+    margin-left: 0.8rem!important;
 }
 
 #Header ul{

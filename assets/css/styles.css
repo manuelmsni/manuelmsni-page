@@ -211,7 +211,8 @@ a:visited.button {
 }
 
 .examen {
-    color: #b55620;
+    color: #000000;
+    background-color: #faffcb;
     text-decoration: none;
     font-weight: normal;
     font-size: 100%;
