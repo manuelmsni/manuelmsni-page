@@ -179,7 +179,6 @@ ul.dropdown {
     z-index: 3;
     width: fit-content;
     height: fit-content;
-    padding-left: 0;
     position: absolute;
     white-space: nowrap;
     padding: 0.5rem;
