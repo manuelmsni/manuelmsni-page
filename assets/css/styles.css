@@ -94,9 +94,14 @@ b {
     margin: 0;
 }
 
-.button {
+a.button {
     padding: 3px;
     background: #b3c1bb;
+    color: black;
+    text-decoration: none;
+}
+a:visited.button {
+    color: black;
 }
 
 .button:hover {
@@ -206,7 +211,10 @@ b {
 }
 
 .examen {
-    color: #948338;
+    color: #b55620;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
 }
 
 @media (max-width: 850px) {
