@@ -78,7 +78,7 @@
 }
 
 a.navico.icon {
-    color: black;
+    color: #3c3531;
 }
 
 .nav li:hover a.navico.icon {
@@ -170,6 +170,25 @@ nav ul {
     transition: color 0.1s,transform 0.2s ease-out !important;
     box-shadow: 0px -20px 20px 1px var(--link-li-shadow-scrolled-hover) inset !important;
     background: var(--link-li-background-scrolled-hover) !important;
+}
+
+ul.dropdown {
+    display:none;
+    background: var(--navigation-background);
+    left: 4.1rem;
+    z-index: 3;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 0;
+    position: absolute;
+}
+
+.header-scrolled ul.dropdown {
+    background: var(--navigation-background-scrolled);
+}
+
+.dd1t:hover .dd1{
+    display: block !important;
 }
 
 /* Hamburguer */
