@@ -78,10 +78,18 @@
 }
 
 a.navico.icon {
-    color: white;
+    color: black;
 }
 
 .nav li:hover a.navico.icon {
+    color: var(--link-li-borders-hover);
+}
+
+.header-scrolled a.navico.icon {
+    color: white;
+}
+
+.header-scrolled .nav li:hover a.navico.icon {
     color: var(--link-li-borders-hover);
 }
 
