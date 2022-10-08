@@ -91,11 +91,9 @@
 #Header ul li {
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 18px;
-    padding-bottom: 18px;
     align-self: center;
     border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
+    border-bottom: 4px solid rgb(0 0 0 / 8%);
     border-left: 1px solid var(--link-li-borders);
     border-right: 1px solid var(--link-li-borders);
     cursor: pointer;
@@ -155,8 +153,6 @@ nav ul {
 
 .nav li:hover {
     border-bottom: 4px solid var(--link-li-borders-scrolled-hover);
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
     transition: color 0.1s,transform 0.2s ease-out;
     box-shadow: 0px -20px 20px 1px var(--link-li-shadow-scrolled-hover) inset;
     background: var(--link-li-background-scrolled-hover);
