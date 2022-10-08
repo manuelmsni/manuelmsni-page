@@ -31,10 +31,10 @@
     transition: all 0.5s;
 }
 
-.nav .nav-active {
+ul.nav.nav-active {
     left: 0!important;
     background: var(--navigation-background);
-} .header-scrolled .nav .nav-active {
+} .header-scrolled ul.nav.nav-active {
     background: var(--navigation-background-scrolled);
 }
 
