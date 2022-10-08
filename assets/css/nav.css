@@ -75,8 +75,8 @@
 }
 
 .nav li:hover .icon::before {
-    color: var(--shop-color-scrolled-hover);
-    text-shadow: 1px 1px var(--shop-shadow-scrolled-hover);
+    color: var(--link-li-borders-hover) !important;
+    text-shadow: 1px 1px var(--shop-shadow-scrolled-hover) !important;
 }
 
 #Header ul{
