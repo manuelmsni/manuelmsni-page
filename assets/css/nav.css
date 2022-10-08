@@ -66,6 +66,19 @@
     text-shadow: 1px 1px var(--bookshelf-shadow);
 }
 
+.nav li .home::before {
+    transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    color: var(--home-color)!important;
+    text-shadow: 1px 1px var(--home-shadow);
+}
+
+.nav li:hover .icon::before {
+    color: var(--shop-color-scrolled-hover);
+    text-shadow: 1px 1px var(--shop-shadow-scrolled-hover);
+}
+
 #Header ul{
     display: flex;
     list-style: none;
@@ -140,12 +153,13 @@ nav ul {
     margin-left: 0.8rem!important;
 }
 
-
 .nav li:hover {
-    border-left: 1px solid var(--link-li-borders-hover);
-    border-right: 1px solid var(--link-li-borders-hover);
-    background: var(--link-li-background-hover);
-    box-shadow: 0px -20px 20px 1px var(--link-li-shadow-hover) inset;
+    border-bottom: 4px solid var(--link-li-borders-scrolled-hover);
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    transition: color 0.1s,transform 0.2s ease-out;
+    box-shadow: 0px -20px 20px 1px var(--link-li-shadow-scrolled-hover) inset;
+    background: var(--link-li-background-scrolled-hover);
 }
 
 /* Hamburguer */
