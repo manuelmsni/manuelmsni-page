@@ -205,6 +205,10 @@ b {
     color: white;
 }
 
+.examen {
+    color: #948338;
+}
+
 @media (max-width: 850px) {
     #content {
         margin-left: 0;
