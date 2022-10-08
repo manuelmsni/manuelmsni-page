@@ -28,6 +28,23 @@ p.relacion:before {
     width: -webkit-fill-available;
     height: -webkit-fill-available;
 }
+p.atributo {
+    width: fit-content;
+    aspect-ratio: 1 / 1;
+    transform: translateY(-40%);
+    margin-left: 1rem;
+}
+p.atributo:before {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    content: "";
+    display: block;
+    border: 1px solid black;
+    position: relative;
+    top: 75%;
+    border-radius: 150px;
+    transform: scale(1.2);
+}
 </style>
 
 <a class="trigger inline" onclick="ShowHide('sud2', 'ud2')">⬆️</a>
