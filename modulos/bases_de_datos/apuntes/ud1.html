@@ -29,10 +29,9 @@
         modificación de un dato en una aplicación no afecta al resto de aplicaciones.</p>
     <h5>Inconvenientes:</h5>
     <ul>
-        <li><b>Datos redundantes</b>.</li>
+        <li><b>Datos redundantes</b>, coste de almacenamiento elevado.</li>
         <li><b>Datos inconsistentes</b>: Si cambias el dato en una aplicación, el mismo dato podría quedar con distinto
             valor en otra aplicación.</li>
-        <li><b>Coste de almacenamiento elevado</b>: Repetición de datos.</li>
         <li><b>Difícil acceso</b>: Si se requiere una consulta no prevista, hay que cambiar el código o crear una nueva
             aplicación.</li>
         <li><b>Tiempos de prosesamiento elevado</b>: Almacenamiento no optimizado.</li>
@@ -94,11 +93,11 @@
     <p>El modelo ANSI es una propuesta teórica sobre cómo debe funcionar un sistema gestor de bases de datos.</p>
     <p>Según el modelo ANSI-SPARC, se utilizan tres esquemas para representar los datos:</p>
     <ol>
-        <li><b style="color: #319789;">Esquema externo</b>: Información preparada para el usuario final. (<b
+        <li><b style="color: #319789;">Modelo externo</b>: Información preparada para el usuario final. (<b
                 class="examen">Desarrollador</b>)</li>
-        <li><b style="color: #319789;">Esquema conceptual</b>: <b class="examen">Identificación de los datos, las
+        <li><b style="color: #319789;">Modelo conceptual</b>: <b class="examen">Identificación de los datos, las
                 relaciones entre ellos, sus restricciones</b>, etc. (<b class="examen">Diseñador / Analista</b>)</li>
-        <li><b style="color: #319789;">Esquema interno</b>: <b class="examen">Describe la estructura física de la base
+        <li><b style="color: #319789;">Modelo interno</b>: <b class="examen">Describe la estructura física de la base
                 de datos, detallando el sistema de almacenamiento de la base de datos y sus métodos de acceso</b>. (<b
                 class="examen">Administrador</b>)</li>
     </ol>
@@ -143,7 +142,7 @@
     <p class="inline"> Realizan tres funciones:</p>
 
     <ul>
-        <li><b>DDL</b> (<b class="examen">Función de descripción</b> o definición): Definir <b>estructuras</b>, <b>reglas</b> y <b>relacciones</b> entre
+        <li><b>DDL</b> (<b class="examen">Función de descripción</b> o definición): Definir <b>estructuras</b>, <b>reglas</b> y <b>relaciones</b> entre
             datos.</li>
         <li><b>DML</b> (Manipulación): <b>Añadir</b>, <b>eliminar</b>, <b>modificar</b> o <b>buscar</b> datos.
             Actualmente la búsqueda (consulta) se separa como <b>DQL</b> mediante un lenguaje de consulta de datos.</li>
@@ -234,7 +233,7 @@
 
     <p><b class="examen">Ventajas</b>:</p>
     <ul>
-        <li><b class="examen">Hay una alta existencia de aplicaciones existentes que la utilizan</b></li>
+        <li><b class="examen">Alta existencia de aplicaciones que la utilizan</b></li>
         <li><b class="examen">Mejora del rendimiento</b></li>
         <li><b class="examen">No es necesario crear una nueva en caso de que se quiera añadir información y no se tenga el suficiente espacio</b></li>
     </ul>
