@@ -173,14 +173,16 @@ nav ul {
 }
 
 ul.dropdown {
-    display:none;
+    display:none !important;
     background: var(--navigation-background);
-    left: 4.1rem;
+    left: 3.5rem;
     z-index: 3;
     width: fit-content;
     height: fit-content;
     padding-left: 0;
     position: absolute;
+    white-space: nowrap;
+    padding: 0.5rem;
 }
 
 .header-scrolled ul.dropdown {
