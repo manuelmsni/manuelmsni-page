@@ -1,0 +1,85 @@
+- Dados 2 bytes ¿Cuántos bits son? ¿Cuántos simbolos distintos puedo representar?
+No basta con dar el resultado. Hay que explicarlo.
+
+2 Bytes son 16 bits porque un Byte es el conjunto de 8 bits
+2 x 8 = 16 bits
+
+Podemos representar 65.536 símbolos con 2 Bytes
+2^16 = 65.563
+
+----------------------------------------------------------
+
+- En la mayoría de las microcomputadoras las direcciones de memoria se especifican en hexadecimal. Estas direcciones son números secuenciales que identifican cada circuito de memoria.
+Si las direcciones de memoria de una microcomputadora van de 0000(16 a FFFF(16 ¿Cuántas direcciones de memoria hay?
+No basta con dar el resultado, hay que explicarlo.
+
+Sabiendo que el simbolo F vale 4 bits en hexadecimal, al contar con 4 F (FFFF).
+4 x 4 = 16 bits
+Al estar en binario, (base 2) elevandolo al número de bits (16) obtenemos el número de posibilidades de posiciones de memoria.
+2^16 = 65.563
+
+----------------------------------------------------------------
+
+Determinar de las siguientes representaciones cuáles son las que están codificadas en BCD (Pasarlas a decimal), y cuales no, explicándolo:
+
+a) 011000111000
+
+0110 -> 6
+0011 -> 3
+1000 -> 8
+En decimal 638
+
+b) 110010000001
+
+1100 -> No se puede en BCD
+1000 -> 8
+0001 -> 1
+No se puede en bcd
+
+c) 0011001100110010
+
+0011 -> 3
+0011 -> 3
+0011 -> 3
+0010 -> 2
+
+
+d) 000000101010
+
+0000 -> 0
+0010 -> 2
+1010 -> No se puede en BCD
+
+e) 1111010010101
+
+0001 -> 1
+1110 -> 
+1001 -> 
+0101 -> 
+
+f) 011111000001
+
+0111 -> 
+1100 -> 
+0001 -> 
+
+- Si una película en formato MP4/H.264 ocupa 700MB ¿Cuántas películas caben en un CD de 4,7 GB de capacidad?
+
+4,7 x 2^30 / (700 x 2^20) = 6,8
+
+- Considerando que un disco musical tiene una media de 12 canciones y una canción MP3 ocupe una media de 3.300KB, ¿De qué capacidad deberá ser un reproductor de MP3 para poder llevar en él hasta 100 discos musicales y gastarnos lo minimo posible: 2GB, 4GB, 8GB o 16 GB?
+
+(12 x (3.300 x 2^10)) x 100 = 4055040000 bits
+4055040000 bits / 2^30 = 3,77GB
+El de 4GB nos vale
+
+- ¿Cuántos bits se necesitan para representar los números decimales en el intervalo de 0 a 999 utilizando el sistema binario? ¿Y utilizando el código BCD?
+10 bits para el binario y 12 bits para el BCD.
+
+- Pasar los siguientes números binarios a base octal y hexadecimal
+
+a) 1010110111
+
+b) 1101001
+
+c) 1001111

@@ -1,0 +1,50 @@
+<style type="text/css">
+b.tachado {
+    font-weight: normal;
+    text-decoration: line-through;
+    color: #a91f1f;
+}
+.potencias .last{
+    border-right: 1px solid #d5d5d5;
+}
+.potencias td{
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-left: 1px solid #d5d5d5;
+}
+</style>
+
+<h4>Pasar de binario a decimal</h4>
+<p>Por ejemplo, para pasar el número (1101001)<sub>2</sub> a decimal:</p>
+<table class="potencias">
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="last">1</td>
+    </tr>
+    <tr>
+        <td>2<sup>6</sup></td>
+        <td>2<sup>5</sup></td>
+        <td>2<sup>4</sup></td>
+        <td>2<sup>3</sup></td>
+        <td>2<sup>2</sup></td>
+        <td>2<sup>1</sup></td>
+        <td class="last">2<sup>0</sup></td>
+    </tr>
+</table>
+<p>1x2<sup>6</sup> + 1x2<sup>5</sup> + <b class="tachado">0x2<sup>4</sup></b> + 1x2<sup>3</sup> + <b class="tachado">0x2<sup>2</sup></b> + <b class="tachado">0x2<sup>1</sup></b> + 1x2<sup>0</sup></p>
+<p>64 + 32 + 8 + 1 = 105</p>
+<p>(1101001)<sub>2</sub> ≡ (105)<sub>10</sub></p>
+
+<br/>
+
+<h4>Pasar de decimal a binario</h4>
+<p>Para pasar un número de decimal a binaro, se divide entre 2 sucesivamente. Encadenando el resto de cada operación se forma el número en binario.</p>
+<p>Por ejemplo, para pasar el número (105)<sub>10</sub> a binario:</p>
+<img src="../../../../../../../../../assets/img/decimal_binario.png" />
+<p>(105)<sub>10</sub> ≡ (1101001)<sub>2</sub></p>
