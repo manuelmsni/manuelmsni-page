@@ -81,6 +81,14 @@
     text-shadow: 1px 1px var(--home-shadow);
 }
 
+.instagram::before {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    text-shadow: 1px 1px var(--home-shadow);
+    color: #b9b9b9;
+}
+
 .nav li:hover .icon::before {
     color: var(--link-li-borders-hover) !important;
     text-shadow: 1px 1px var(--shop-shadow-scrolled-hover) !important;
