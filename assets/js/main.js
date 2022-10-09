@@ -25,6 +25,11 @@ window.onload = () => {
   loadHTML('Footer', '../../../../../../assets/bits/footer.html');
 };
 
+function instagram() {
+  url= "https://www.instagram.com/manuelmsni";
+  window.open(url, '_blank').focus();
+}
+
 // Hamburguer
 
 function hamburguer() {
