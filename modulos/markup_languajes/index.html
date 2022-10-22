@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-EN">
     <head>
         <meta charset="UTF-8">
+        <meta name="description" content="Markup languajes subject notes">
+        <meta name="keywords" content="html, css">
+        <meta name="author" content="manuelmsni">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Markup languajes</title>
 
@@ -23,9 +26,11 @@
                 <a class="button pointer" onclick="ShowHide('pr', 'ap')">Practices</a>
                 <hr/>
                 <div class="ap">
+                    <h3>HTML Elements<a class="trigger selementsHTML inline" onclick="loadHTML('ElementsHTML', 'notes/elementsHTML.html'),ShowHide('elementsHTML', 'selementsHTML')">⬇️</a></h3>
+                    <div id="ElementsHTML" class="hidden drop elementsHtml"></div>
                 </div>
                 <div class="pr hidden">  
-                    <h3>[Ej 1] Introducción a lenguajes de marcas: <a class="trigger sej1 inline" onclick="loadHTML('Ej1', 'ejercicios/ej1.html'),ShowHide('ej1', 'sej1')">⬇️</a></h3>
+                    <h3>[Ej 1] Introducción a lenguajes de marcas: <a class="trigger sej1 inline" onclick="loadHTML('Ej1', 'exer/ej1.html'),ShowHide('ej1', 'sej1')">⬇️</a></h3>
                     <div id="Ej1" class="hidden drop ej1"></div>
                 </div>
             </div>
