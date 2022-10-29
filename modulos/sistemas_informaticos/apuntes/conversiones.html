@@ -34,6 +34,7 @@
 <div class="textbox">
     <h4>Pasar de binario a decimal <a class="pointer b_ds" onclick="ShowHide('b_d', 'b_ds')">⬇️</a></h4> 
     <div class="b_d" hidden>
+    <a class="pointer" onclick="ShowHide('b_ds', 'b_d')">⬆️</a>
     <p>Por ejemplo, para pasar el número (1101001)<sub>2</sub> a decimal:</p>
     <table class="potencias">
         <tr>
@@ -68,7 +69,7 @@
             class="tachado">0x2<sup>2</sup></b> + <b class="tachado">0x2<sup>1</sup></b> + 1x2<sup>0</sup></p>
     <p>64 + 32 + 8 + 1 = 105</p>
     <p>(1101001)<sub>2</sub> ≡ (105)<sub>10</sub></p>
-    <a class="button pointer" onclick="ShowHide('b_ds', 'b_d')">⬆️</a>
+    <a class="pointer" onclick="ShowHide('b_ds', 'b_d')">⬆️</a>
     <br />
     </div>
     
@@ -76,6 +77,7 @@
 <div class="textbox">
     <h4>Pasar de decimal a binario <a class="pointer d_bs" onclick="ShowHide('d_b', 'd_bs')">⬇️</a></h4> 
     <div class="d_b" hidden>
+    <a class="pointer" onclick="ShowHide('d_bs', 'd_b')">⬆️</a>
     <p>Para pasar un número de decimal a binaro, se divide entre 2 sucesivamente. Encadenando el resto de cada operación
         se forma el número en binario.</p>
     <p>Por ejemplo, para pasar el número (105)<sub>10</sub> a binario:</p>
@@ -240,12 +242,13 @@
         </tr>
     </table>
     <p>(105)<sub>10</sub> ≡ (1101001)<sub>2</sub></p>
-    <a class="button pointer" onclick="ShowHide('d_bs', 'd_b')">⬆️</a>
+    <a class="pointer" onclick="ShowHide('d_bs', 'd_b')">⬆️</a>
     </div>
 </div>
 <div class="textbox">
     <h4>Pasar de binario a Hexadecimal <a class="pointer b_hs" onclick="ShowHide('b_h', 'b_hs')">⬇️</a></h4> 
     <div class="b_h" hidden>
+    <a class="pointer" onclick="ShowHide('b_hs', 'b_h')">⬆️</a>
     <table class="potencias">
         <tr>
             <td>Equivalente</td>
@@ -342,13 +345,14 @@
     <p><pre style="font-family: auto;">2   ;   15   ;   9</pre></p>
     <p>Si alguno de los números es mayor de nueve, se coloca su equivalente en hexadecimal.</p>
     <p>2F9</p>
-    <a class="button pointer" onclick="ShowHide('b_hs', 'b_h')">⬆️</a>
+    <a class="pointer" onclick="ShowHide('b_hs', 'b_h')">⬆️</a>
     </div>
 </div>
 
 <div class="textbox">
     <h4>Pasar de hexadecimal a binario <a class="pointer h_bs" onclick="ShowHide('h_b', 'h_bs')">⬇️</a></h4> 
     <div class="h_b" hidden></h4>
+    <a class="pointer" onclick="ShowHide('h_bs', 'h_b')">⬆️</a>
     <table class="potencias">
         <tr>
             <td>Equivalente</td>
@@ -389,6 +393,6 @@
             <td class="last">F</td>
         </tr>
     </table>
-    <a class="button pointer" onclick="ShowHide('h_bs', 'h_b')">⬆️</a>
+    <a class="pointer" onclick="ShowHide('h_bs', 'h_b')">⬆️</a>
     </div>
 </div>
