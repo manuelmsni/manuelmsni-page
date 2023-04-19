@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>manuelmsni</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../../../../../../../assets/css/styles.css">
+
+
+    </head>
+
+    <body>
+        <section id="Header"></section>
+
+        <div id="outerClickAux" class="no" onclick="outerClick()"></div>
+
+        <section id="Content">
+            <div class="margins">
+                <h1>Inglés</h1>
+                <a class="button pointer" onclick="ShowHide('ap', 'pr')">Apuntes</a>
+<!--
+                <a class="button pointer" onclick="ShowHide('pr', 'ap')">Prácticas</a>
+-->
+                <hr/>
+
+                <div class="ap">
+                    <h3>Resumen: <a class="trigger sres inline" onclick="loadHTML('Res', 'apuntes/resumen.html'), ShowHide('res', 'sres')">⬇️</a></h3>
+                    <div id="Res" class="hidden drop res"></div>
+
+                </div>
+                <div class="pr hidden">
+<!--
+                    <h3>[Ej 1] Presentación "Soy un experto en..." <a class="trigger sej1 inline" onclick="loadHTML('Ej1', 'ejercicios/ej1.html'), ShowHide('ej1', 'sej1')">⬇️</a></h3>
+                    <div id="Ej1" class="hidden drop ej1"></div>
+-->
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="Footer"></section>
+
+        <script src="https://manuelmartinsantamaria.com/assets/vendor/jquery/jquery.min.js"></script>
+
+        <script src="../../../../../../../../assets/js/main.js"></script>
+    
+    </body>
+
+</html>
