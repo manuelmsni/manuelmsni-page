@@ -18,10 +18,15 @@ public class $CLASSNAME{
     
     public static void main(String[]args){
         instrucciones = leeFichero();
-        for(String linea:instrucciones){
-            opera(linea);
+        if(instrucciones != null){
+            for(String linea:instrucciones){
+                opera(linea);
+            }
+            
+            guardaDatos("salida");
+        } else {
+            mensajeAlerta("Error fatal","No ha sido posible obtener los datos de entrada. El programa va a finalizar.");
         }
-        
     }
     
     private static void opera(String linea){
@@ -31,6 +36,8 @@ public class $CLASSNAME{
     
     private static ArrayList<String> leeFichero(){
         selectorArchivos = new JFileChooser("./");
+        selectorArchivos.setDialogTitle("Elige archivo de entrada");
+        JOptionPane.showMessageDialog(null, "Vas a elegir un archivo de entrada de datos.");
         selectorArchivos.showOpenDialog(null);
         File f = selectorArchivos.getSelectedFile();
         if(f == null){
@@ -73,25 +80,29 @@ public class $CLASSNAME{
     }
     
     private static void guardaDatos(String datos){
-        selectorArchivos = new JFileChooser("./");
-        selectorArchivos.showOpenDialog(null);
-        File f = selectorArchivos.getSelectedFile();
-        if(f!=null){
-            FileWriter fw = null;
-            try{
-                fw = new FileWriter(f);
-            }catch(IOException ioe){
-                mensajeAlerta("IOException 1","No se ha podido iniciar el escritor.");
-            }
-            if(fw!=null){
+        JOptionPane.showMessageDialog(null, "Vas a elegir un archivo de salida de datos.");
+        String nombreSalida = JOptionPane.showInputDialog("Escribe el nombre del archivo de salida (sin extensión).");
+        if(nombreSalida!=null){
+            File f = new File(nombreSalida+".txt");
+            if(f!=null){
+                FileWriter fw = null;
                 try{
-                    fw.write(datos);
-                    fw.close();
+                    fw = new FileWriter(f);
                 }catch(IOException ioe){
-                    mensajeAlerta("IOException 2","Imposible escribir datos en el fichero.");
+                    mensajeAlerta("IOException 1","No se ha podido iniciar el escritor.");
+                }
+                if(fw!=null){
+                    try{
+                        fw.write(datos);
+                        fw.close();
+                    }catch(IOException ioe){
+                        mensajeAlerta("IOException 2","Imposible escribir datos en el fichero.");
+                    }
+                } else {
+                    mensajeAlerta("Error FileWriter 0","Imposible iniciar el escritor.");
                 }
             } else {
-                mensajeAlerta("Error FileWriter 0","Imposible iniciar el escritor.");
+                mensajeAlerta("Error File 1","El archivo de salida no ha sido iniciado.");
             }
         } else {
             mensajeAlerta("Error selección 1","El archivo de salida no ha sido seleccionado.");
@@ -105,5 +116,6 @@ public class $CLASSNAME{
     public static void log(String log){
         System.out.println(log);
     }
+
 
 }
