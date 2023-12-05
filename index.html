@@ -14,6 +14,266 @@
 
 <body>
 
+    <script>
+        function copyToClipboard(content) {
+    var textarea = document.createElement("textarea");
+    textarea.style.height = 0;
+    document.body.appendChild(textarea);
+    textarea.value = content;
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+}
+function copia(texto) {
+    copyToClipboard(texto);
+}
+var texto = `
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.SQLSyntaxErrorException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+public class MDBConnection {
+    
+    protected static Connection con;
+    
+    private static String dbName = "BDExamen";
+    private static String dbUser = "root";
+    private static String dbPassword = "passwd";
+    
+    private static String getMDBPrefix(){
+        return "jdbc:mariadb:" + "//localhost:3306/";
+    }
+    
+    private static String getDBPath(){
+        return getMDBPrefix() + dbName;
+    }
+    
+    public static Connection getConnection() {
+        try {
+            if (con == null || con.isClosed()) {
+                con = DriverManager.getConnection(getDBPath(), dbUser, dbPassword);
+            }
+            return con;
+        } catch (SQLSyntaxErrorException synte) { // La base de datos no esta creada
+            info("¡No se puede conectar!", "No existe la base de datos. Se va a intentar crear la base de datos.");
+            synte.printStackTrace();
+            if (!createDatabase()) System.exit(1);;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return null;
+    }
+    
+    private static ArrayList<String> getColumnNames(Connection connection, String tableName){
+        ArrayList<String> columnNames = new ArrayList<String>();
+        DatabaseMetaData dbmd;
+        ResultSet rs = null; 
+        try {
+            dbmd = connection.getMetaData();
+            rs = dbmd.getColumns(null, null, tableName, "%");
+            while(rs.next()) { 
+                String column = rs.getString("COLUMN_NAME"); 
+                columnNames.add(column); 
+            } 
+        } catch (SQLException ex) {
+            error("Error", "No se han podido obtener las columnas de la tabla " + tableName);
+            ex.printStackTrace();
+        }finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if(!columnNames.isEmpty()) return columnNames;
+        return null;
+    }
+    
+    public static ArrayList<String> getTableNames(Connection connection) {
+        ArrayList<String> tableNames = new ArrayList<>();
+        DatabaseMetaData dbmd;
+        ResultSet rs = null;
+        try {
+            dbmd = connection.getMetaData();
+            // Obtener las tablas de la base de datos
+            rs = dbmd.getTables(null, null, "%", new String[]{"TABLE"});
+            while (rs.next()) {
+                String tableName = rs.getString("TABLE_NAME");
+                tableNames.add(tableName);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (!tableNames.isEmpty()) return tableNames;
+        return null;
+    }
+    
+    private static boolean createDatabase() {
+        try {
+            Connection temp = DriverManager.getConnection(getMDBPrefix(), "root", "docker");
+            Statement statement = temp.createStatement();
+            
+            // Crear base de datos
+            String createDatabase = "CREATE DATABASE " + dbName;
+            statement.executeUpdate(createDatabase);
+            String useDatabase = "USE " + dbName;
+            statement.executeUpdate(useDatabase);
+
+            // Crear la tabla
+            String createEventoTableQuery = "CREATE TABLE IF NOT EXISTS Objeto ("
+                    + "UUID VARCHAR(36) PRIMARY KEY, "
+                    + "Nombre VARCHAR(50), "
+                    + "Fecha DATE)";
+            statement.executeUpdate(createEventoTableQuery);
+            
+            info("¡Operacion exitosa!", "Se ha creado la base de datos.");
+
+            close();
+            return true;
+        } catch (SQLException e) {
+            error("Error fatal","No se ha podido crear la base de datos.");
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public static void close(){
+        try {
+            if(con != null && !con.isClosed()) con.close();
+            else con = null;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+     
+    public static void info(String titulo, String Mensaje){
+        JOptionPane.showMessageDialog(null, titulo, Mensaje, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public static void error(String titulo, String Mensaje){
+        JOptionPane.showMessageDialog(null, titulo, Mensaje, JOptionPane.ERROR_MESSAGE);
+    }
+}
+import java.util.List;
+
+public interface DAO<T> {
+    public List<T> getAll();
+    public boolean addObject(T object);
+    public boolean updateObject(T object);
+    public boolean deleteObject(String id);
+}
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author manuelmsni
+ */
+public class EventDAO implements DAO<Objeto>{
+    
+    public EventDAO(){
+    }
+    
+    public boolean addObject(Objeto obj){
+        try {
+            String insertEventoQuery = "INSERT INTO Objeto (UUID) VALUES (?)";
+            PreparedStatement preparedStatement = MDBConnection.getConnection().prepareStatement(insertEventoQuery);
+            preparedStatement.setString(1, obj.getId());
+            preparedStatement.executeUpdate();
+            MDBConnection.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        MDBConnection.close();
+        return false;
+    }
+    
+    public boolean updateObject(Objeto obj) {
+        try {
+            String updateEventoQuery = "UPDATE Objeto SET Nombre=?, Fecha=? WHERE UUID=?";
+            PreparedStatement preparedStatement = MDBConnection.getConnection().prepareStatement(updateEventoQuery);
+            preparedStatement.setString(1, obj.getName());
+            preparedStatement.setString(2, obj.getDate().toString());
+            preparedStatement.setString(3, obj.getId());
+            int rowsUpdated = preparedStatement.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("Evento actualizado correctamente");
+                MDBConnection.close();
+                return true;
+            } else {
+                System.out.println("No se encontró el evento con UUID: " + obj.getId());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        MDBConnection.close();
+        return false;
+    }
+
+    public boolean deleteObject(String objId) {
+        try {
+            String deleteEventoQuery = "DELETE FROM Objeto WHERE UUID=?";
+            PreparedStatement preparedStatement = MDBConnection.getConnection().prepareStatement(deleteEventoQuery);
+            preparedStatement.setString(1, objId);
+            int rowsDeleted = preparedStatement.executeUpdate();
+            if (rowsDeleted > 0) {
+                MDBConnection.close();
+                return true;
+            } else {
+                System.out.println("No encontrado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        MDBConnection.close();
+        return false;
+    }
+    
+    public ArrayList<Objeto> getAll(Object parent) {
+        ArrayList<Objeto> objetos = new ArrayList<>();
+        try {
+            Connection con = MDBConnection.getConnection();
+            Statement statement = con.createStatement();
+            String selectEventosQuery = "SELECT * FROM Objeto";
+            ResultSet eventosResult = statement.executeQuery(selectEventosQuery);
+            while (eventosResult.next()) {
+                Objeto temp = new Objeto(eventosResult.getString("Nombre"), LocalDate.parse(eventosResult.getString("Fecha")));
+                objetos.add(temp);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDBConnection.close();
+        }
+        return objetos;
+    }
+}`;
+    </script>
+
     <section id="Header"></section>
 
     <div id="outerClickAux" class="no" onclick="outerClick()"></div>
@@ -30,7 +290,9 @@
 
             <br />
 
+            <p copia(texto)> Descargas</p>
             <a href="https://drive.google.com/file/d/1QGDChUdGguR9Gytta8FMfUZZGxvAr_H7/view?usp=sharing">Api Java20</a>
+            
 
             <h1>Módulos</h1>
             <hr />
