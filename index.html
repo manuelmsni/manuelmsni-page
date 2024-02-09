@@ -305,6 +305,158 @@ public class Vista implements Closeable {
     }
 }
 `;
+
+var clase = `
+import com.mycompany.jpa_mmartin.modelo.Noticia;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
+import java.util.ArrayList;
+import java.util.List;
+/*
+@NamedQueries({
+@NamedQuery(
+    name = "Noticia.getAll",
+    query = "select n from Noticia n"
+)
+@NamedQuery(
+    name = "Noticia.buscarPorTextoEnComentarios",
+    query = "SELECT n FROM Noticia n JOIN n.comentarios c WHERE c.comentario LIKE :texto"
+)
+@NamedQuery(
+    name = "Noticia.buscarPorContenido",
+    query = "select n from Noticia n where n.contenido like :contenido"
+)
+})
+*/
+/**
+ *
+ * @author Vespertino
+ */
+public class NoticiaPersistence {
+    private EntityManagerFactory emf;
+    private static NoticiaPersistence instance;
+    public static NoticiaPersistence getinstance(){
+        if(instance == null) instance = new NoticiaPersistence();
+        return instance;
+    }
+    public NoticiaPersistence(){
+        emf = Persistence.createEntityManagerFactory("jpa_MMartin");
+    }
+    public List<Noticia> getAll(){
+        List<Noticia> noticias = new ArrayList<>();
+        try(EntityManager em = emf.createEntityManager()){
+            var q = em.createNamedQuery("Noticia.getAll", Noticia.class);
+            noticias = q.getResultList();
+        }
+        return noticias;
+    }
+    
+    public Noticia getOneById(int idNoticia){
+        String query = "select p from Noticia p where p.idNoticia = :idNoticia";
+        try(EntityManager em = emf.createEntityManager()){
+            var q = em.createQuery(query, Noticia.class);
+            q.setParameter("idNoticia", (long) idNoticia);
+            return q.getSingleResult();
+        } catch (NoResultException e) {
+            System.out.println("No hay resultados");
+            return null;
+        }
+    }
+    
+    public boolean insert(Noticia n){
+        EntityTransaction t = null;
+        try(EntityManager em = emf.createEntityManager()){
+            t = em.getTransaction();
+            t.begin();
+            em.persist(n);
+            t.commit();
+            return true;
+        }catch(Exception e){
+            if(t!=null && t.isActive()) t.rollback();
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean delete(Long idNoticia) {
+        EntityTransaction t = null;
+        try (EntityManager em = emf.createEntityManager()) {
+            t = em.getTransaction();
+            t.begin();
+            Noticia n = em.find(Noticia.class, idNoticia);
+            if (n != null) {
+                em.remove(n);
+                t.commit();
+                return true;
+            } else {
+                t.rollback();
+                return false;
+            }
+        } catch (Exception e) {
+            if (t != null && t.isActive()) {
+                t.rollback();
+            }
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean update(Noticia n){
+        EntityTransaction t = null;
+        try(EntityManager em = emf.createEntityManager()){
+            t = em.getTransaction();
+            t.begin();
+            em.merge(n);
+            t.commit();
+            return true;
+        }catch(Exception e){
+            if(t!=null && t.isActive()) t.rollback();
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public List<Noticia> buscarNoticiasPorTextoComentario(String texto) {
+        EntityManager em = null;
+        try{
+            em = emf.createEntityManager();
+            TypedQuery<Noticia> query = em.createNamedQuery("Noticia.buscarPorTextoEnComentarios", Noticia.class);
+            query.setParameter("texto", "%" + texto + "%");
+            List<Noticia> resultados = query.getResultList();
+            return resultados;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+            if (emf != null) {
+                emf.close();
+            }
+        }
+    }
+    
+    public List<Noticia> buscarNoticiasPorContenido(String textoContenido) {
+        EntityManager em = null;
+        List<Noticia> noticias = new ArrayList<>();
+        try {
+            em = emf.createEntityManager();
+            TypedQuery<Noticia> query = em.createNamedQuery("Noticia.buscarPorContenido", Noticia.class);
+            query.setParameter("contenido", "%" + textoContenido + "%");
+            noticias = query.getResultList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return noticias;
+    }
+
+}
+
+`;
     </script>
 
     <section id="Header"></section>
@@ -322,16 +474,16 @@ public class Vista implements Closeable {
             <div id="ScheduleContainer"></div>
 
             <br />
-
+            <p onclick="copia(clase)"> Documentación </p>
+            <hr>
+            <a href="https://docs.jboss.org/hibernate/orm/6.4/userguide/html_single/Hibernate_User_Guide.html">Documentación hibernate</a>
+            <hr>
+            <a href="https://docs.oracle.com/javaee/6/tutorial/doc/bnbqa.html#bnbqb">Documentación jpa</a>
             <p onclick="copia(texto)"> Dependencias </p>
             <hr>
             <a href="https://drive.google.com/file/d/1aRtHnrLzg1-fXG7BZNpXZ2CGw2lPpWfl/view?usp=sharing">HeidiSQL Portable</a>
             <hr>
             <a href="https://drive.google.com/file/d/1ZcfvvY7_VuLZlJTN83nkkcl7HoLkMIAA/view?usp=sharing">Docker desktop installer</a>
-            <hr>
-            <a href="https://docs.jboss.org/hibernate/orm/6.4/userguide/html_single/Hibernate_User_Guide.html">Documentación hibernate</a>
-            <hr>
-            <a href="https://docs.oracle.com/javaee/6/tutorial/doc/bnbqa.html#bnbqb">Documentación jpa</a>
             <hr>
             <a href="https://mvnrepository.com/artifact/org.hibernate/hibernate-core/6.4.2.Final">Dependencias hibernate</a>
             <hr>
