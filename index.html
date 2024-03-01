@@ -554,6 +554,12 @@ public class MongoPojoManager {
         ).into(result);
         return result;
     }
+
+    public static <T> List<T> findGreaterThan(MongoCollection<T> collection, String fieldName, Number number) {
+        List<T> documents = new ArrayList<>();
+        collection.find(Filters.gt(fieldName, number)).into(documents);
+        return documents;
+    }
     
     // Métodos crud para clases anidadas para tipos genéricos
     
