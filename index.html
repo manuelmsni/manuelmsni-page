@@ -600,6 +600,88 @@ public class MongoPojoManager {
     
 }
 `;
+
+var mongoDoc = `
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import java.util.ArrayList;
+import java.util.List;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+
+public class MongoDocumentManager {
+    
+    private static final String HOST = "localhost";
+    private static final String PORT = "57017";
+    private static final  String DB_URI = "mongodb://" + HOST + ":" + PORT;
+    
+    private static MongoDocumentManager instance;
+    
+    private MongoClient client;
+    
+    private MongoDocumentManager() {
+        ConnectionString connectionString = new ConnectionString(DB_URI);
+        client = MongoClients.create(connectionString);
+    }
+    
+    public static MongoDocumentManager getInstance() {
+        if (instance == null) instance = new MongoDocumentManager();
+        return instance;
+    }
+
+    private MongoDatabase getDatabase(String dbname) {
+        return client.getDatabase(dbname);
+    }
+    
+    private static MongoCollection<Document> getCollection(String database, String name) {
+        return getInstance().getDatabase(database).getCollection(name);
+    }
+    
+    // Métodos CRUD para documentos
+    
+    public static List<Document> getAll(MongoCollection<Document> collection) {
+        List<Document> list = new ArrayList<>();
+        collection.find().into(list);
+        return list;
+    }
+    
+    public static void insert(MongoCollection<Document> collection, Document obj) {
+        collection.insertOne(obj);
+    }
+    
+    public static void insertMany(MongoCollection<Document> collection, List<Document> objects) {
+        collection.insertMany(objects);
+    }
+
+    public static void delete(MongoCollection<Document> collection, ObjectId idToDelete) {
+       collection.deleteOne(Filters.eq("_id", idToDelete));
+    }
+    
+    public static void update(MongoCollection<Document> collection, ObjectId idToUpdate, Document objToUpdate) {
+       collection.replaceOne(Filters.eq("_id", idToUpdate), objToUpdate);
+    }
+
+    public static Document get(MongoCollection<Document> collection, ObjectId idToFind) {
+        return collection.find(Filters.eq("_id", idToFind)).first();
+    }
+    
+    public static List<Document> findByTwoFields(MongoCollection<Document> collection, String field1, Object value1, String field2, Object value2) {
+        return collection.find(Filters.and(Filters.eq(field1, value1), Filters.eq(field2, value2))).into(new ArrayList<>());
+    }
+    
+    public static List<Document> findByWordInField(MongoCollection<Document> collection, String fieldName, String phrase) {
+        List<Document> result = new ArrayList<>();
+        collection.find(Filters.regex(fieldName, Pattern.quote(phrase), "i")).into(result);
+        return result;
+    }
+    
+}
+`
     </script>
 
     <section id="Header"></section>
@@ -622,7 +704,8 @@ public class MongoPojoManager {
             <a href="https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync/4.11.1">Dependencias pom.xml</a>
             <br>
             <a href="https://www.mongodb.com/docs/drivers/java/sync/current/usage-examples/findOne/">findOne</a>
-            <hr>
+            <br />
+            <p onclick="copia(mongoDoc)">------------------------------</p>
 
     <!--
             <br />
