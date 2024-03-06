@@ -457,231 +457,469 @@ public class NoticiaPersistence {
 }
 
 `;
-var mongo = `
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Aggregates;
-import com.mongodb.client.model.Filters;
-import java.util.ArrayList;
-import java.util.Arrays;
+var java = `
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.HttpURLConnection;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.MulticastSocket;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.net.UnknownHostException;
 import java.util.List;
-import java.util.regex.Pattern;
-import org.bson.codecs.configuration.CodecRegistries;
-import org.bson.codecs.configuration.CodecRegistry;
-import org.bson.codecs.pojo.PojoCodecProvider;
-import org.bson.types.ObjectId;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class MongoPojoManager {
+/**
+ *
+ * @author Vespertino
+ */
+public class Main {
     
-    private static final String HOST = "localhost";
-    private static final String PORT = "57017";
-    private static final  String DB_URI = "mongodb://" + HOST + ":" + PORT;
-    
-    private static MongoPojoManager instance;
-    
-    private CodecRegistry codec;
-    private MongoClient client;
-    
-    private MongoPojoManager(){
-        ConnectionString connectionString = new ConnectionString(DB_URI);
-        client = MongoClients.create(connectionString);
-        PojoCodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
-        codec = CodecRegistries.fromRegistries(
-            MongoClientSettings.getDefaultCodecRegistry(), 
-            CodecRegistries.fromProviders(pojoCodecProvider)
-        );
+    public static void procesos(){
+        
+        // --- Procesos ---
+ 
+        String classPath = System.getProperty("java.class.path");
+        String className = "com.mycompany.test.Prueba";
+        ProcessBuilder pb = new ProcessBuilder("java", "-cp", classPath, className);
+        pb.inheritIO();
+        try {
+            pb.start();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
     }
     
-    public static MongoPojoManager getInstance(){
-        if(instance == null) instance = new MongoPojoManager();
-        return instance;
-    }
-
-    private MongoDatabase getDatabase(String dbname){
-        return client.getDatabase(dbname).withCodecRegistry(codec);
-    }
-    
-    private static <T> MongoCollection<T> getCollection(String database, String name, Class<T> type){
-        return getInstance().getDatabase(database).getCollection(name, type);
-    }
-    
-    // Métodos crud para tipos genéricos
-    
-    public static <T> List<T> getAll(MongoCollection<T> collection){
-        List<T> list = new ArrayList<>();
-        collection.find().into(list);
-        return list;
-    }
-    
-    public static <T> void insert(MongoCollection<T> collection, T obj) {
-        collection.insertOne(obj);
-    }
-    
-    public static <T> void insertMany(MongoCollection<T> collection, List<T> objects) {
-        collection.insertMany(objects);
-    }
-
-    public static <T> void delete(MongoCollection<T> collection, ObjectId idToDelete) {
-       collection.deleteOne(Filters.eq("_id", idToDelete));
-    }
-    
-    public static <T> void update(MongoCollection<T> collection, ObjectId idToUpdate, T objToUpdate) {
-       collection.replaceOne(Filters.eq("_id", idToUpdate), objToUpdate);
-    }
-
-    public static <T> T get(MongoCollection<T> collection, ObjectId idToFind) {
-        return collection.find(Filters.eq("_id", idToFind)).first();
-    }
-    
-    public static <T> List<T> findByTwoFields(MongoCollection<T> collection, String field1, Object value1, String field2, Object value2, Class<T> type) {
-        return collection.find(
-            Filters.and(
-                Filters.eq(field1, value1), 
-                Filters.eq(field2, value2)
-            ), 
-            type
-        ).into(new ArrayList<>());
-    }
-    
-    public static <T> List<T> findByWordInField(MongoCollection<T> collection, String fieldName, String phrase) {
-        List<T> result = new ArrayList<>();
-        collection.find(
-            Filters.regex(fieldName, Pattern.quote(phrase), "i")
-        ).into(result);
-        return result;
-    }
-
-    public static <T> List<T> findGreaterThan(MongoCollection<T> collection, String fieldName, Number number) {
-        List<T> documents = new ArrayList<>();
-        collection.find(Filters.gt(fieldName, number)).into(documents);
-        return documents;
-    }
-    
-    // Métodos crud para clases anidadas para tipos genéricos
-    
-    public static <T> List<T> getAllNested(MongoCollection<T> collection, String fieldName, Class<T> type){
-        return collection.aggregate(
-            Arrays.asList(
-                Aggregates.unwind("$" + fieldName),
-                Aggregates.replaceRoot("$" + fieldName)
-                ),
-                type
-        ).into(new ArrayList<>());
-    }
-    
-    public static <T> List<T> getParentsOf(MongoCollection<T> collection, String field, ObjectId idToFind){
-        return collection.find(Filters.eq(field + "._id", idToFind)).into(new ArrayList<>());
-    }
-    
-    public static <T> T findNestedById(MongoCollection<T> collection, String fieldName, ObjectId idToFind, Class<T> type) {
-        return collection.aggregate(
-            Arrays.asList(
-                Aggregates.unwind("$" + fieldName),
-                Aggregates.match(Filters.eq(fieldName + "._id", idToFind)),
-                Aggregates.replaceRoot("$" + fieldName)
-            ), 
-            type
-        ).first();
-    }
-    
-    /*
-        rootList.addListSelectionListener(e -> {
-            Padre selectedRoot = rootList.getSelectedValue();
-            if (selectedRoot != null) {
-                nestedModel.clear();
-                selectedRoot.getHijos().forEach(nestedModel::addElement);
+    public static void hilos() throws InterruptedException{
+        
+        Thread t = new Thread(){
+            @Override
+            public void run(){
+                while(!isInterrupted()){
+                    
+                }
             }
-        });
-    */
+        };
+        
+        t.setPriority(Thread.MIN_PRIORITY); // 1
+        t.setPriority(Thread.NORM_PRIORITY); // 5
+        t.setPriority(Thread.MAX_PRIORITY); // 10
+        
+        // t.run(); // Secuencialmente
+        t.start(); // Concurrentemente
+        
+        t.interrupt(); // Interrumpir el hilo
+        
+        t.join(); // Espera a que el hilo termine para continuar el programa
+        
+        Thread.currentThread().sleep(1000);
+        
+    }
     
+    public static void multihilos(){
+        
+    }
+    
+    // --- Inet ---
+    
+    private void leerDesdeURL(String urlString) {
+        URL url;
+        try{
+            url = new URL(urlString);
+        }catch (MalformedURLException mue){
+            mue.printStackTrace();
+            return;
+        }
+        InputStream inputStream = null;
+        BufferedReader reader = null;
+        try {
+            inputStream = url.openStream();
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                System.out.println(linea);
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally{
+            try {
+                if(inputStream!=null) inputStream.close();
+                if(reader!=null) reader.close();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+    }
+    
+    public static void enviarParametrosUrl(String urlStr){
+        try {
+            URL url = new URL(urlStr);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true);
+
+            String parametros = "param1=" + URLEncoder.encode("valor1", "UTF-8") +
+                                 "&param2=" + URLEncoder.encode("valor2", "UTF-8");
+            
+            try (PrintWriter out = new PrintWriter(conn.getOutputStream())) {
+                out.print(parametros);
+            }
+
+            StringBuilder respuesta = new StringBuilder();
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+                String linea;
+                while ((linea = in.readLine()) != null) {
+                    respuesta.append(linea);
+                }
+            }
+
+        } catch (MalformedURLException mue) {
+            mue.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+    
+    public static void cabeceraHttp(String urlString){
+        try {
+            URL url = new URL(urlString);
+            URLConnection conexion = url.openConnection();
+
+            Map<String, List<String>> camposCabecera = conexion.getHeaderFields();
+            camposCabecera.forEach((clave, valor)->{
+                System.out.println("\t" + clave + ": " + valor);
+            });
+
+            System.out.println("clave: " + conexion.getHeaderFieldKey(1));
+            System.out.println("valor: " + conexion.getHeaderField(1));
+
+        } catch (MalformedURLException mue) {
+            mue.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        
+    }
+    
+    // --- TCP ---
+    
+    public static class ServidorTCP extends Thread {
+        // Sé que no es necesario que el servidor sea un hilo (estaría en un programa a parte),
+        // pero como está en el mismo proceso que los clientes,
+        // me evita el error de que se quede atascado en un bucle infinito del servidor y no avance en mi programa principal
+        private ServerSocket servidor;
+        public ServidorTCP(int puerto){
+            try {
+                servidor = new ServerSocket(puerto);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        @Override
+        public void run(){
+            Socket cliente;
+            while (!isInterrupted() && !servidor.isClosed()) {
+                try {
+                    cliente = servidor.accept();
+                    atiende(cliente);
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+            }
+            close();
+        }
+        public void atiende(Socket cliente){
+            new Thread(){
+                @Override
+                public void run(){
+                    
+                }
+            }.start();
+            try {
+                cliente.close();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        public void enviar(Socket cliente, String mensaje){
+            DataOutputStream out;
+            try {
+                out = new DataOutputStream(cliente.getOutputStream());
+                out.writeUTF(mensaje);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        public String recibir(Socket cliente){
+            DataInputStream in;
+            try {
+                in = new DataInputStream(cliente.getInputStream());
+                return in.readUTF();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+            return null;
+        }
+        public void close(){
+            if(servidor!=null && !servidor.isClosed()){
+                try {
+                    servidor.close();
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+                servidor = null;
+            }
+        }
+    }
+    public static class ClienteTCP extends Thread {
+        private DataInputStream in;
+        private DataOutputStream out;
+        private Socket cliente;
+        public ClienteTCP(String ipServidor, int puerto){
+            try {
+                cliente = new Socket(ipServidor, puerto);
+                in = new DataInputStream(cliente.getInputStream());
+                out = new DataOutputStream(cliente.getOutputStream());
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        @Override
+        public void run(){
+            while (!isInterrupted() && !cliente.isClosed()) {
+                
+            }
+            close();
+        }
+        public void enviar(String mensaje){
+            try {
+                out.writeUTF(mensaje);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        public String recibir(){
+            try {
+                return in.readUTF();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+            return null;
+        }
+        public void close(){
+            if(cliente!=null && !cliente.isClosed()){
+                try {
+                    cliente.close();
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+                cliente = null;
+            }
+        }
+    }
+    
+    // --- UDP ---
+    
+    public static class ServidorUDP extends Thread {
+        // Sé que no es necesario que el servidor sea un hilo (estaría en un programa a parte),
+        // pero como está en el mismo proceso que los clientes,
+        // me evita el error de que se quede atascado en un bucle infinito del servidor y no avance en mi programa principal
+        private DatagramSocket servidor;
+        public ServidorUDP(int puerto){
+            try {
+                servidor = new DatagramSocket(puerto);
+            } catch (SocketException ex) {
+                ex.printStackTrace();
+            }
+        }
+        @Override
+        public void run(){
+            while (!isInterrupted() && !servidor.isClosed()){
+                byte[] buffer = new byte[1024];
+                DatagramPacket paqueteRecibido = new DatagramPacket(buffer, buffer.length);
+                try{
+                    servidor.receive(paqueteRecibido);
+                    new Thread(() -> { // Atender a cad hipotético cliente en un hilo
+                        String mensaje = "";
+                        enviar(paqueteRecibido, mensaje);
+                    }).start();
+                } catch(SocketException se){
+                    se.printStackTrace();
+                    break;
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                    break;
+                }
+            }
+            close();
+        }
+        public void enviar(DatagramPacket paqueteRecibido, String mensaje){
+            byte[] bytesMenseje = mensaje.getBytes();
+            DatagramPacket paqueAEnviar = new DatagramPacket(bytesMenseje, bytesMenseje.length, paqueteRecibido.getAddress(), paqueteRecibido.getPort());
+            try {
+                servidor.send(paqueAEnviar);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        public void close(){
+            if(servidor!=null && !servidor.isClosed()){
+                servidor.close();
+                servidor = null;
+            }
+        }
+    }
+    public static class ClienteUDP extends Thread {
+        private DatagramSocket cliente;
+        private InetAddress direccionServidor;
+        private int puertoServidor;
+        public ClienteUDP(String direccionServidor, int puertoServidor){
+            try {
+                this.puertoServidor = puertoServidor;
+                this.direccionServidor = InetAddress.getByName(direccionServidor);
+                this.cliente = new DatagramSocket();
+            } catch (UnknownHostException uhe) {
+                uhe.printStackTrace();
+            } catch (SocketException se) {
+                se.printStackTrace();
+            }
+        }
+        @Override
+        public void run(){
+            while(!isInterrupted() && !cliente.isClosed()){
+                  
+            }
+            close();
+        }
+        public void enviar(String mensaje){
+            byte[] bytesMenseje = mensaje.getBytes();
+            DatagramPacket paqueAEnviar = new DatagramPacket(bytesMenseje, bytesMenseje.length, direccionServidor, puertoServidor);
+            try {
+                cliente.send(paqueAEnviar);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        public void recibir(){
+            byte[] buffer = new byte[1024];
+            DatagramPacket paqueARecibir = new DatagramPacket(buffer, buffer.length);
+            try {
+                cliente.receive(paqueARecibir);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        public void close(){
+            if(cliente!=null && !cliente.isClosed()){
+                cliente.close();
+                cliente = null;
+            }
+        }
+    }
+    
+    // --- Multicast ---
+    
+    public static class ServidorMulticast extends Thread {
+        // Sé que no es necesario que el servidor sea un hilo (estaría en un programa a parte),
+        // pero como está en el mismo proceso que los clientes,
+        // me evita el error de que se quede atascado en un bucle infinito del servidor y no avance en mi programa principal
+        private MulticastSocket servidor;
+        private InetAddress direccionGrupo;
+        private int puertoGrupo;
+        public ServidorMulticast(String direccionGrupo, int puertoGrupo){
+            this.puertoGrupo = puertoGrupo;
+            try {
+                this.direccionGrupo = InetAddress.getByName(direccionGrupo);
+                this.servidor = new MulticastSocket();
+            } catch (UnknownHostException uhe) {
+                uhe.printStackTrace();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        @Override
+        public void run(){
+            while(!isInterrupted() && !servidor.isClosed()){
+                  
+            }
+            close();
+        }
+        public void enviarMensaje(String mensaje) throws IOException{
+            byte[] bytesMenseje = mensaje.getBytes();
+            DatagramPacket packet = new DatagramPacket(bytesMenseje, bytesMenseje.length, direccionGrupo, puertoGrupo);
+            servidor.send(packet);
+        }
+        public void close(){
+            if(servidor!=null && !servidor.isClosed()){
+                servidor.close();
+                servidor = null;
+            }
+        }
+    }
+    public static class ClienteMulticast extends Thread {
+        private MulticastSocket cliente;
+        private InetAddress direccionGrupo;
+        private int puertoGrupo;
+        public ClienteMulticast(String direccionGrupo, int puertoGrupo) {
+            this.puertoGrupo = puertoGrupo;
+            try {
+                this.direccionGrupo = InetAddress.getByName(direccionGrupo);
+                this.cliente = new MulticastSocket(puertoGrupo);
+            } catch (UnknownHostException uhe) {
+                uhe.printStackTrace();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        @Override
+        public void run(){
+            try {
+                this.cliente.joinGroup(this.direccionGrupo);
+                while(!isInterrupted() && !cliente.isClosed()){
+                    recibirMensaje();
+                }
+                cliente.leaveGroup(direccionGrupo);
+                close();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        public void recibirMensaje(){
+            byte[] buffer = new byte[1024];
+            DatagramPacket paqueteARecibir = new DatagramPacket(buffer, buffer.length);
+            try {
+                cliente.receive(paqueteARecibir);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        public void close(){
+            if(cliente!=null && !cliente.isClosed()){
+                cliente.close();
+                cliente = null;
+            }
+        }
+    }
 }
+
 `;
 
-var mongoDoc = `
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
-import java.util.ArrayList;
-import java.util.List;
-import org.bson.Document;
-import org.bson.types.ObjectId;
-
-public class MongoDocumentManager {
-    
-    private static final String HOST = "localhost";
-    private static final String PORT = "57017";
-    private static final  String DB_URI = "mongodb://" + HOST + ":" + PORT;
-    
-    private static MongoDocumentManager instance;
-    
-    private MongoClient client;
-    
-    private MongoDocumentManager() {
-        ConnectionString connectionString = new ConnectionString(DB_URI);
-        client = MongoClients.create(connectionString);
-    }
-    
-    public static MongoDocumentManager getInstance() {
-        if (instance == null) instance = new MongoDocumentManager();
-        return instance;
-    }
-
-    private MongoDatabase getDatabase(String dbname) {
-        return client.getDatabase(dbname);
-    }
-    
-    private static MongoCollection<Document> getCollection(String database, String name) {
-        return getInstance().getDatabase(database).getCollection(name);
-    }
-    
-    // Métodos CRUD para documentos
-    
-    public static List<Document> getAll(MongoCollection<Document> collection) {
-        List<Document> list = new ArrayList<>();
-        collection.find().into(list);
-        return list;
-    }
-    
-    public static void insert(MongoCollection<Document> collection, Document obj) {
-        collection.insertOne(obj);
-    }
-    
-    public static void insertMany(MongoCollection<Document> collection, List<Document> objects) {
-        collection.insertMany(objects);
-    }
-
-    public static void delete(MongoCollection<Document> collection, ObjectId idToDelete) {
-       collection.deleteOne(Filters.eq("_id", idToDelete));
-    }
-    
-    public static void update(MongoCollection<Document> collection, ObjectId idToUpdate, Document objToUpdate) {
-       collection.replaceOne(Filters.eq("_id", idToUpdate), objToUpdate);
-    }
-
-    public static Document get(MongoCollection<Document> collection, ObjectId idToFind) {
-        return collection.find(Filters.eq("_id", idToFind)).first();
-    }
-    
-    public static List<Document> findByTwoFields(MongoCollection<Document> collection, String field1, Object value1, String field2, Object value2) {
-        return collection.find(Filters.and(Filters.eq(field1, value1), Filters.eq(field2, value2))).into(new ArrayList<>());
-    }
-    
-    public static List<Document> findByWordInField(MongoCollection<Document> collection, String fieldName, String phrase) {
-        List<Document> result = new ArrayList<>();
-        collection.find(Filters.regex(fieldName, Pattern.quote(phrase), "i")).into(result);
-        return result;
-    }
-    
-}
-`
     </script>
 
     <section id="Header"></section>
@@ -699,32 +937,10 @@ public class MongoDocumentManager {
             <div id="ScheduleContainer"></div>
 
             <br />
-            <p onclick="copia(mongo)"> Documentación MongoDB</p>
+            <p onclick="copia(java)"> Documentación Java </p>
             <br>
-            <a href="https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync/4.11.1">Dependencias pom.xml</a>
-            <br>
-            <a href="https://www.mongodb.com/docs/drivers/java/sync/current/usage-examples/findOne/">findOne</a>
-            <br />
-            <p onclick="copia(mongoDoc)">------------------------------</p>
+            <a href="https://docs.oracle.com/en/java/javase/20/docs/api/index.html">Api 20 Java</a>
 
-    <!--
-            <br />
-            <p onclick="copia(clase)"> Documentación </p>
-            <hr>
-            <a href="https://docs.jboss.org/hibernate/orm/6.4/userguide/html_single/Hibernate_User_Guide.html">Documentación hibernate</a>
-            <hr>
-            <a href="https://docs.oracle.com/javaee/6/tutorial/doc/bnbqa.html#bnbqb">Documentación jpa</a>
-            <p onclick="copia(texto)"> Dependencias </p>
-            <hr>
-            <a href="https://drive.google.com/file/d/1aRtHnrLzg1-fXG7BZNpXZ2CGw2lPpWfl/view?usp=sharing">HeidiSQL Portable</a>
-            <hr>
-            <a href="https://drive.google.com/file/d/1ZcfvvY7_VuLZlJTN83nkkcl7HoLkMIAA/view?usp=sharing">Docker desktop installer</a>
-            <hr>
-            <a href="https://mvnrepository.com/artifact/org.hibernate/hibernate-core/6.4.2.Final">Dependencias hibernate</a>
-            <hr>
-            <a href="https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client/3.3.2">Dependencias MariaDB</a>
-            <br>
--->
 <!--
             <h1>Módulos</h1>
             <hr />
