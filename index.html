@@ -32,6 +32,9 @@ var java = `
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -103,7 +106,18 @@ public class Main {
     }
     
     public static void multihilos(){
-        
+        /*
+        Object lock;
+        while(!isInterrupted()){
+            synchronized (lock) {
+                lock.notify();
+                try {
+                    lock.wait();
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }*/
     }
     
     // --- Inet ---
@@ -484,6 +498,36 @@ public class Main {
             if(cliente!=null && !cliente.isClosed()){
                 cliente.close();
                 cliente = null;
+            }
+        }
+    }
+    
+    public static class HiloLectura extends Thread{
+        private int lineasTotales;
+        public HiloLectura(File f){
+            lineasTotales = 0;
+        }
+        public void run(File f){
+            FileReader fr = null;
+            try {
+                fr = new FileReader(f);
+                BufferedReader br = new BufferedReader(fr);
+                String linea;
+                do{
+                    linea = br.readLine();
+                    if(linea!=null)lineasTotales++;
+                }
+                while(linea!=null);
+            } catch (FileNotFoundException fnfe) {
+                fnfe.printStackTrace();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            } finally {
+                try {
+                    fr.close();
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
             }
         }
     }
