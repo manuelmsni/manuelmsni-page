@@ -54,8 +54,6 @@ import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -65,8 +63,6 @@ public class Main {
     
     public static void procesos(){
         
-        // --- Procesos ---
- 
         String classPath = System.getProperty("java.class.path");
         String className = "com.mycompany.test.Prueba";
         ProcessBuilder pb = new ProcessBuilder("java", "-cp", classPath, className);
@@ -90,16 +86,16 @@ public class Main {
             }
         };
         
-        t.setPriority(Thread.MIN_PRIORITY); // 1
-        t.setPriority(Thread.NORM_PRIORITY); // 5
-        t.setPriority(Thread.MAX_PRIORITY); // 10
+        t.setPriority(Thread.MIN_PRIORITY); 
+        t.setPriority(Thread.NORM_PRIORITY);
+        t.setPriority(Thread.MAX_PRIORITY);
         
-        // t.run(); // Secuencialmente
-        t.start(); // Concurrentemente
+        t.run();
+        t.start();
         
-        t.interrupt(); // Interrumpir el hilo
+        t.interrupt();
         
-        t.join(); // Espera a que el hilo termine para continuar el programa
+        t.join();
         
         Thread.currentThread().sleep(1000);
         
@@ -120,7 +116,6 @@ public class Main {
         }*/
     }
     
-    // --- Inet ---
     
     private void leerDesdeURL(String urlString) {
         URL url;
@@ -202,12 +197,11 @@ public class Main {
         
     }
     
-    // --- TCP ---
     
     public static class ServidorTCP extends Thread {
-        // Sé que no es necesario que el servidor sea un hilo (estaría en un programa a parte),
-        // pero como está en el mismo proceso que los clientes,
-        // me evita el error de que se quede atascado en un bucle infinito del servidor y no avance en mi programa principal
+        /*Sé que no es necesario que el servidor sea un hilo (estaría en un programa a parte),
+        pero como está en el mismo proceso que los clientes,
+        me evita el error de que se quede atascado en un bucle infinito del servidor y no avance en mi programa principal*/
         private ServerSocket servidor;
         public ServidorTCP(int puerto){
             try {
@@ -319,12 +313,10 @@ public class Main {
         }
     }
     
-    // --- UDP ---
-    
     public static class ServidorUDP extends Thread {
-        // Sé que no es necesario que el servidor sea un hilo (estaría en un programa a parte),
-        // pero como está en el mismo proceso que los clientes,
-        // me evita el error de que se quede atascado en un bucle infinito del servidor y no avance en mi programa principal
+        /*Sé que no es necesario que el servidor sea un hilo (estaría en un programa a parte),
+        pero como está en el mismo proceso que los clientes,
+        me evita el error de que se quede atascado en un bucle infinito del servidor y no avance en mi programa principal*/
         private DatagramSocket servidor;
         public ServidorUDP(int puerto){
             try {
@@ -370,6 +362,7 @@ public class Main {
             }
         }
     }
+    
     public static class ClienteUDP extends Thread {
         private DatagramSocket cliente;
         private InetAddress direccionServidor;
@@ -418,12 +411,10 @@ public class Main {
         }
     }
     
-    // --- Multicast ---
-    
     public static class ServidorMulticast extends Thread {
-        // Sé que no es necesario que el servidor sea un hilo (estaría en un programa a parte),
-        // pero como está en el mismo proceso que los clientes,
-        // me evita el error de que se quede atascado en un bucle infinito del servidor y no avance en mi programa principal
+        /*Sé que no es necesario que el servidor sea un hilo (estaría en un programa a parte),
+        pero como está en el mismo proceso que los clientes,
+        me evita el error de que se quede atascado en un bucle infinito del servidor y no avance en mi programa principal*/
         private MulticastSocket servidor;
         private InetAddress direccionGrupo;
         private int puertoGrupo;
@@ -532,7 +523,6 @@ public class Main {
         }
     }
 }
-
 `;
 
     </script>
